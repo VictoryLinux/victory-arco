@@ -96,7 +96,7 @@ function gdm() {
 
             if [ "$answer" == "n" ]
             then
-                ./arcosetup-2.sh
+                sh arcosetup-2.sh
             fi
         fi
 
