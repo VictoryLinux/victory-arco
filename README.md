@@ -15,7 +15,7 @@ chmod +x ~/arco-gnome/*.sh
 
 cd arco-gnome
 
-./arcosetup
+./arcosetup.sh
 
 
 # Thanks
