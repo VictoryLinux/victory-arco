@@ -138,12 +138,12 @@ function pop() {
 }
 
 # Put the fancy bash promt back after updating
-function pop() {
+function dock() {
 
-	echo "Installing my Icon Theme."
+	echo "Setting up Favorites to Dock."
 	echo
 	sleep 3s
-	gsettings set org.gnome.desktop.interface icon-theme 'Pop'
+	gsettings set org.gnome.shell.favorite-apps ['brave-browser.desktop', 'firefox.desktop', 'chromium.desktop', 'org.gnome.Nautilus.desktop', 'simplenote.desktop', 'terminator.desktop', 'realvnc-vncviewer.desktop', 'com.teamviewer.TeamViewer.desktop', 'virtualbox.desktop', 'net.lutris.Lutris.desktop', 'discord.desktop', 'onboard.desktop', 'tv.plex.PlexMediaPlayer.desktop'
 	
 	check_exit_status
 }
@@ -173,4 +173,5 @@ arco
 update_script
 fix_bashrc
 pop
+dock
 leave
