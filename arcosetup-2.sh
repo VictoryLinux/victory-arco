@@ -103,7 +103,7 @@ function update_script() {
 	echo "Moving Update Script to final location."
 	echo
 	sleep 3s
-	sudo mv arco-gnome/Personal/arcoupdate $HOME/.bin/;
+	sudo mv arco-gnome/Personal/arcoupdate ~/.bin/;
 	cd .bin 
 	chmod u+x arcoupdate
 	check_exit_status
@@ -115,8 +115,8 @@ function fix_bashrc() {
 	echo "Making Terminal fancy."
 	echo
 	sleep 3s
-	sudo mv arco-gnome/Personal/.fancy-user-bash.sh $HOME/;
-	sudo mv arco-gnome/Personal/.fancy-root-bash.sh $HOME/;
+	sudo mv arco-gnome/Personal/.fancy-user-bash.sh ~/;
+	sudo mv arco-gnome/Personal/.fancy-root-bash.sh ~/;
 	echo "source ~/.fancy-user-bash.sh" >> ~/.bashrc
 	check_exit_status
 }
@@ -131,6 +131,18 @@ function pop() {
 	cd pop-icon-theme
 	meson build
 	sudo ninja -C "build" install
+	sudo mv pop-icon-theme/ ~/;
+	gsettings set org.gnome.desktop.interface icon-theme 'Pop'
+	
+	check_exit_status
+}
+
+# Put the fancy bash promt back after updating
+function pop() {
+
+	echo "Installing my Icon Theme."
+	echo
+	sleep 3s
 	gsettings set org.gnome.desktop.interface icon-theme 'Pop'
 	
 	check_exit_status
