@@ -33,8 +33,14 @@ check_exit_status() {
 greeting() {
 
 	echo
-	echo "Hello, $USER. Let's Finish settting up your fresh ArcoLinux install."
+	echo "+-------------------------------------------------------------------------+"
+	echo "|-- Hello, $USER. Let's Finish settting up your fresh ArcoLinux install.--|"
+	echo "+-------------------------------------------------------------------------+"
 	echo
+	echo "This is not a silent install" 
+	echo
+	echo "you will be asked several questions as it progresses"
+	sleep 5s
 }
 
 # searching for the fastest mirrors
@@ -148,18 +154,74 @@ function dock() {
 	check_exit_status
 }
 
+# Put the fancy bash promt back after updating
+function backgrounds() {
+
+	echo "Setting up Favorites to Dock."
+	echo
+	sleep 3s
+	sudo mv arco-gnome/Personal/my_arcolinux /usr/share/backgrounds/
+	sudo mv arco-gnome/Personal/my_gnome /usr/share/backgrounds/
+	sudo mv arco-gnome/Personal/my_wall /usr/share/backgrounds/
+	check_exit_status
+}
+
+# Put the fancy bash promt back after updating
+function nvidia() {
+
+	echo "Setting up Favorites to Dock."
+	echo
+	read -p "Do you need Nvidia video drivers? (y/n) " answer
+
+            if [ "$answer" == "y" ]
+            then
+                sudo pacman -S nvidia nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
+            fi
+
+	check_exit_status
+}
+
+# Put the fancy bash promt back after updating
+function intel() {
+
+	echo "Setting up Favorites to Dock."
+	echo
+	read -p "Do you need Intel video drivers? (y/n) " answer
+
+            if [ "$answer" == "y" ]
+            then
+                sudo pacman -S lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
+
+            fi
+
+	check_exit_status
+}
+
+# Put the fancy bash promt back after updating
+function virtualbox() {
+
+	echo
+	read -p "Is this being setup in virtualbox? (y/n) " answer
+
+            if [ "$answer" == "y" ]
+            then
+                sudo pacman -S virtualbox-guest-utils
+
+            fi
+
+	check_exit_status
+}
+
 function leave() {
 
 	echo
-	echo "-------------------------------------"
+	echo "---------------------------------------"
 	echo "---- ArcoLinux has been installed! ----"
-	echo "-------------------------------------"
+	echo "---------------------------------------"
 	echo
 	echo "This PC may need to be restarted"
 	echo
-	echo "You can now recieve the full upgrades that ArcoLinux releases once a month by opening terminal and typing"
-	echo 
-	echo "arcoupdate"
+	echo
 	echo
 	echo "Restarting in 15 Seconds"
 	sleep 15s
@@ -174,4 +236,8 @@ update_script
 fix_bashrc
 pop
 dock
+backgrounds
+nvidia
+intel
+virtualbox
 leave
