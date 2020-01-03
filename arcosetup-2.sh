@@ -121,14 +121,15 @@ function fix_bashrc() {
 	echo "Making Terminal fancy."
 	echo
 	sleep 3s
-	sudo ~/mv arco-gnome/Personal/.fancy-user-bash.sh ~/;
-	sudo ~/mv arco-gnome/Personal/.fancy-root-bash.sh ~/;
+	cd /arco-gnome/Personal
+	sudo mv Personal/.fancy-user-bash.sh ~/;
+	sudo mv Personal/.fancy-root-bash.sh ~/;
 	echo "source ~/.fancy-user-bash.sh" >> ~/.bashrc
 	check_exit_status
 }
 
 # Put the fancy bash promt back after updating
-function pop() {
+function icons() {
 
 	echo "Installing my Icon Theme."
 	echo
@@ -149,15 +150,15 @@ function dock() {
 	echo "Setting up Favorites to Dock."
 	echo
 	sleep 3s
-	gsettings set org.gnome.shell.favorite-apps ['brave-browser.desktop', 'firefox.desktop', 'chromium.desktop', 'org.gnome.Nautilus.desktop', 'simplenote.desktop', 'terminator.desktop', 'realvnc-vncviewer.desktop', 'com.teamviewer.TeamViewer.desktop', 'virtualbox.desktop', 'onboard.desktop']
+	gsettings set org.gnome.shell.favorite-apps ['firefox.desktop', 'chromium.desktop', 'org.gnome.Nautilus.desktop', 'simplenote.desktop', 'terminator.desktop', 'realvnc-vncviewer.desktop', 'com.teamviewer.TeamViewer.desktop', 'virtualbox.desktop', 'onboard.desktop']
 	
 	check_exit_status
 }
 
-# Put the fancy bash promt back after updating
+# Put the wallpaper
 function backgrounds() {
 
-	echo "Setting up Favorites to Dock."
+	echo "Setting up Favorite Wallpaper."
 	echo
 	sleep 3s
 	sudo mv ~/arco-gnome/Personal/my_arcolinux /usr/share/backgrounds/
@@ -235,7 +236,7 @@ debloat
 arco
 update_script
 fix_bashrc
-pop
+icons
 dock
 backgrounds
 nvidia
