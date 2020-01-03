@@ -31,7 +31,9 @@ To learn more about ArcolinuxD start by visiting https://arcolinuxd.com/
 
 similarly:
 
-https://www.erikdubois.be<de>https://www.arcolinux.info
+https://www.erikdubois.be
+
+https://www.arcolinux.info
   
 https://www.arcolinux.com
 
