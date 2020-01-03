@@ -116,6 +116,7 @@ function finish() {
 
 }
 
+greeting
 mirror
 general_update
 gnome
