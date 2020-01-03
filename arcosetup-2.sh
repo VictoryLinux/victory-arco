@@ -129,7 +129,7 @@ function fix_bashrc() {
 	check_exit_status
 }
 
-# Put the fancy bash promt back after updating
+# Installing my Icon Themes
 function icons() {
 
 	echo "Installing my Icon Themes."
@@ -148,10 +148,10 @@ function icons() {
 	check_exit_status
 }
 
-# Put the fancy bash promt back after updating
+# Setting up Favorite Dock icons
 function dock() {
 
-	echo "Setting up Favorites to Dock icons."
+	echo "Setting up Favorite Dock icons."
 	echo
 	sleep 3s
 	gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'chromium.desktop', 'org.gnome.Nautilus.desktop', 'simplenote.desktop', 'terminator.desktop', 'realvnc-vncviewer.desktop', 'com.teamviewer.TeamViewer.desktop', 'virtualbox.desktop', 'onboard.desktop']"
@@ -165,19 +165,19 @@ function backgrounds() {
 	echo "Setting up Favorite Wallpaper."
 	echo
 	sleep 3s
-	sudo mv ~/arco-gnome/Personal/my_arcolinux /usr/share/backgrounds/
-	sudo mv ~/arco-gnome/Personal/my_gnome /usr/share/backgrounds/
-	sudo mv ~/arco-gnome/Personal/my_wall /usr/share/backgrounds/
+	sudo mv ~/arco-gnome/Personal/backgrounds/my_arcolinux /usr/share/backgrounds/
+	sudo mv ~/arco-gnome/Personal/backgrounds/my_gnome /usr/share/backgrounds/
+	sudo mv ~/arco-gnome/Personal/backgrounds/my_wall /usr/share/backgrounds/
 	echo
 	sudo rm -rf /usr/share/backgrounds/arcolinux
 	sudo rm -rf /usr/share/backgrounds/gnome
 	check_exit_status
 }
 
-# Put the fancy bash promt back after updating
+# Installing Nvidia drivers,if needed
 function nvidia() {
 
-	echo "Setting up Favorites to Dock."
+	echo "Installing Nvidia drivers,if needed."
 	echo
 	read -p "Do you need Nvidia video drivers? (y/n) " answer
 
@@ -189,10 +189,10 @@ function nvidia() {
 	check_exit_status
 }
 
-# Put the fancy bash promt back after updating
+# Installing Intel drivers,if needed
 function intel() {
 
-	echo "Setting up Favorites to Dock."
+	echo "Installing Intel drivers,if needed."
 	echo
 	read -p "Do you need Intel video drivers? (y/n) " answer
 
