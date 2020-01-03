@@ -109,9 +109,9 @@ function update_script() {
 	echo "Moving Update Script to final location."
 	echo
 	sleep 3s
-	cd /arco-gnome/Personal
+	cd /Personal
 	sudo mv Personal/arcoupdate ~/.bin/;
-	cd .bin 
+	cd ~/.bin 
 	chmod u+x arcoupdate
 	check_exit_status
 }
@@ -123,8 +123,8 @@ function fix_bashrc() {
 	echo
 	sleep 3s
 	cd /arco-gnome/Personal
-	sudo mv Personal/.fancy-user-bash.sh ~/;
-	sudo mv Personal/.fancy-root-bash.sh ~/;
+	sudo cp Personal/.fancy-user-bash.sh ~/;
+	sudo cp Personal/.fancy-root-bash.sh ~/;
 	echo "source ~/.fancy-user-bash.sh" >> ~/.bashrc
 	echo
 	gsettings set org.gnome.desktop.default-applications.terminal exec 'terminator'
@@ -134,7 +134,7 @@ function fix_bashrc() {
 # Put the fancy bash promt back after updating
 function icons() {
 
-	echo "Installing my Icon Theme."
+	echo "Installing my Icon Themes."
 	echo
 	sleep 3s
 	git clone https://github.com/pop-os/icon-theme pop-icon-theme
