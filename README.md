@@ -31,11 +31,14 @@ To learn more about ArcolinuxD start by visiting https://arcolinuxd.com/
 
 similarly:
 
-https://www.erikdubois.be
-https://www.arcolinux.info
+https://www.erikdubois.be<de>https://www.arcolinux.info
+  
 https://www.arcolinux.com
+
 https://www.arcolinuxb.com
+
 https://www.arcolinuxiso.com
+
 https://www.arcolinuxforum.com
 
 # Thanks
