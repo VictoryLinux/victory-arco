@@ -139,7 +139,10 @@ function icons() {
 	meson build
 	sudo ninja -C "build" install
 	sudo mv pop-icon-theme/ ~/;
-	gsettings set org.gnome.desktop.interface icon-theme 'Pop'
+	#gsettings set org.gnome.desktop.interface icon-theme 'Pop'
+	echo
+	git clone https://github.com/daniruiz/flat-remix && mkdir -p ~/.icons && cp -r flat-remix/Flat-Remix* ~/.icons/
+	#gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix"
 	
 	check_exit_status
 }
@@ -147,7 +150,7 @@ function icons() {
 # Put the fancy bash promt back after updating
 function dock() {
 
-	echo "Setting up Favorites to Dock."
+	echo "Setting up Favorites to Dock icons."
 	echo
 	sleep 3s
 	gsettings set org.gnome.shell.favorite-apps ['firefox.desktop', 'chromium.desktop', 'org.gnome.Nautilus.desktop', 'simplenote.desktop', 'terminator.desktop', 'realvnc-vncviewer.desktop', 'com.teamviewer.TeamViewer.desktop', 'virtualbox.desktop', 'onboard.desktop']
@@ -164,6 +167,9 @@ function backgrounds() {
 	sudo mv ~/arco-gnome/Personal/my_arcolinux /usr/share/backgrounds/
 	sudo mv ~/arco-gnome/Personal/my_gnome /usr/share/backgrounds/
 	sudo mv ~/arco-gnome/Personal/my_wall /usr/share/backgrounds/
+	echo
+	sudo rm -rf /usr/share/backgrounds/arcolinux
+	sudo rm -rf /usr/share/backgrounds/gnome
 	check_exit_status
 }
 
