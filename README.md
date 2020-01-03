@@ -12,6 +12,7 @@ you will be asked several questions as it progresses
 
 
 Run the ArcoLinuxD Iso to install the Arch framework.
+https://sourceforge.net/projects/arcolinux/files/ArcoLinuxD/
 
 Run these commands in this order:
 
@@ -23,6 +24,11 @@ chmod +x ~/arco-gnome/*.sh
 cd arco-gnome
 
 ./arcosetup.sh
+
+# Learn
+
+To learn more about ArcolinuxD start by visiting https://arcolinuxd.com/
+similarly
 
 
 # Thanks
