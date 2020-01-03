@@ -109,7 +109,7 @@ function update_script() {
 	echo "Moving Update Script to final location."
 	echo
 	sleep 3s
-	sudo mv arco-gnome/Personal/arcoupdate ~/.bin/;
+	sudo mv ~/arco-gnome/Personal/arcoupdate ~/.bin/;
 	cd .bin 
 	chmod u+x arcoupdate
 	check_exit_status
@@ -121,8 +121,8 @@ function fix_bashrc() {
 	echo "Making Terminal fancy."
 	echo
 	sleep 3s
-	sudo mv arco-gnome/Personal/.fancy-user-bash.sh ~/;
-	sudo mv arco-gnome/Personal/.fancy-root-bash.sh ~/;
+	sudo ~/mv arco-gnome/Personal/.fancy-user-bash.sh ~/;
+	sudo ~/mv arco-gnome/Personal/.fancy-root-bash.sh ~/;
 	echo "source ~/.fancy-user-bash.sh" >> ~/.bashrc
 	check_exit_status
 }
@@ -160,9 +160,9 @@ function backgrounds() {
 	echo "Setting up Favorites to Dock."
 	echo
 	sleep 3s
-	sudo mv arco-gnome/Personal/my_arcolinux /usr/share/backgrounds/
-	sudo mv arco-gnome/Personal/my_gnome /usr/share/backgrounds/
-	sudo mv arco-gnome/Personal/my_wall /usr/share/backgrounds/
+	sudo mv ~/arco-gnome/Personal/my_arcolinux /usr/share/backgrounds/
+	sudo mv ~/arco-gnome/Personal/my_gnome /usr/share/backgrounds/
+	sudo mv ~/arco-gnome/Personal/my_wall /usr/share/backgrounds/
 	check_exit_status
 }
 
@@ -228,6 +228,7 @@ function leave() {
 	reboot
 }
 
+greeting
 mirror
 general_update
 debloat
