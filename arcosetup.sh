@@ -85,6 +85,10 @@ function gdm() {
 	echo
 	echo "You now have a DE. Reboot now to finish in Gnome, or stay here and finish now"
 	echo
+}
+
+# finish
+function finish() {
 	read -p "Do you want to reboot now? (y/n) " answer 
 
             if [ "$answer" == "y" ]
@@ -114,3 +118,4 @@ mirror
 general_update
 gnome
 gdm
+finish
