@@ -89,11 +89,17 @@ function gdm() {
 
 # finish
 function finish() {
-	read -p "Do you want to reboot now? (y/n) " answer 
+	read -p "Do you want to continue now? (y/n) " answer 
 
             if [ "$answer" == "y" ]
             then
-            	echo
+            	cd arco-gnome
+		echo
+		sh arcosetup-2.sh
+
+            if [ "$answer" == "n" ]
+            then
+		echo
 		echo "----------------------------------------------"
 		echo "---- ArcoLinux part 1 has been installed! ----"
 		echo "----------------------------------------------"
@@ -102,13 +108,9 @@ function finish() {
 		echo
             	echo "After restarting, open terminal and run arcosetup-2.sh from the arco-gnome folder to finish this setup"
             	echo
-		echo "Restarting in 15s"
+		echo "Restarting in 20s"
 		sleep 15s
                 reboot
-
-            if [ "$answer" == "n" ]
-            then
-		sh arco-gnome/arcosetup-2.sh
             fi
         fi
 
