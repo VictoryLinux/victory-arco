@@ -108,7 +108,7 @@ function finish() {
 
             if [ "$answer" == "n" ]
             then
-		sh ./arco-gnome/arcosetup-2.sh
+		sh arco-gnome/arcosetup-2.sh
             fi
         fi
 
