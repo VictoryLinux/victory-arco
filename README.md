@@ -2,7 +2,14 @@
 
 This is a continual work in progress to try to create as close to an automated setup as I can.
 
-# My Installation Process
+# Installation Process
+
+
+This is NOT a silent install
+
+you will be asked several questions as it progresses
+
+
 
 Run the ArcoLinuxD Iso to install the Arch framework.
 
