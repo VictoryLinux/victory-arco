@@ -33,8 +33,14 @@ check_exit_status() {
 greeting() {
 
 	echo
-	echo "Hello, $USER. Let's start setting up your fresh ArcoLinux install."
+	echo "+-------------------------------------------------------------------------+"
+	echo "|-- Hello, $USER. Let's Start settting up your fresh ArcoLinux install.--|"
+	echo "+-------------------------------------------------------------------------+"
 	echo
+	echo "This is not a silent install" 
+	echo
+	echo "you will be asked several questions as it progresses"
+	sleep 5s
 }
 
 # searching for the fastest mirrors
