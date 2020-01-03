@@ -77,7 +77,9 @@ function gdm() {
 	sudo systemctl enable gdm.service -f;
 	check_exit_status
 	echo
-	read -p "You can now reboot to continue using your newly installed Gnome Desktop Environment, or finish the setup here and reboot when we are done. Do you want to reboot now? (y/n) " answer 
+	echo "You now have a DE. Reboot now to finish in Gnome, or stay here and finish now"
+	echo
+	read -p "Do you want to reboot now? (y/n) " answer 
 
             if [ "$answer" == "y" ]
             then
@@ -96,6 +98,8 @@ function gdm() {
 
             if [ "$answer" == "n" ]
             then
+	    	cd arco-gnome
+		echo
                 sh arcosetup-2.sh
             fi
         fi
