@@ -125,6 +125,8 @@ function fix_bashrc() {
 	sudo mv Personal/.fancy-user-bash.sh ~/;
 	sudo mv Personal/.fancy-root-bash.sh ~/;
 	echo "source ~/.fancy-user-bash.sh" >> ~/.bashrc
+	echo
+	gsettings set org.gnome.desktop.default-applications.terminal exec 'terminator'
 	check_exit_status
 }
 
