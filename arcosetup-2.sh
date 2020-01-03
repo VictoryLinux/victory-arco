@@ -156,7 +156,7 @@ function dock() {
 	echo "Setting up Favorites to Dock icons."
 	echo
 	sleep 3s
-	gsettings set org.gnome.shell.favorite-apps ['firefox.desktop', 'chromium.desktop', 'org.gnome.Nautilus.desktop', 'simplenote.desktop', 'terminator.desktop', 'realvnc-vncviewer.desktop', 'com.teamviewer.TeamViewer.desktop', 'virtualbox.desktop', 'onboard.desktop']
+	gsettings set org.gnome.shell.favorite-apps Custom value ['firefox.desktop', 'chromium.desktop', 'org.gnome.Nautilus.desktop', 'simplenote.desktop', 'terminator.desktop', 'realvnc-vncviewer.desktop', 'com.teamviewer.TeamViewer.desktop', 'virtualbox.desktop', 'onboard.desktop']
 	
 	check_exit_status
 }
