@@ -30,7 +30,7 @@ check_exit_status() {
 	fi
 }
 
-greeting() {
+function greeting() {
 
 	echo
 	echo "+-------------------------------------------------------------------------+"
@@ -104,9 +104,7 @@ function gdm() {
 
             if [ "$answer" == "n" ]
             then
-	    	cd arco-gnome
-		echo
-                sh arcosetup-2.sh
+		sh ./arco-gnome/arcosetup-2.sh
             fi
         fi
 
