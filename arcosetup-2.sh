@@ -109,7 +109,6 @@ function update_script() {
 	echo "Moving Update Script to final location."
 	echo
 	sleep 3s
-	cd /Personal
 	sudo mv Personal/arcoupdate ~/.bin/;
 	cd ~/.bin 
 	chmod u+x arcoupdate
@@ -122,7 +121,6 @@ function fix_bashrc() {
 	echo "Making Terminal fancy."
 	echo
 	sleep 3s
-	cd /arco-gnome/Personal
 	sudo cp Personal/.fancy-user-bash.sh ~/;
 	sudo cp Personal/.fancy-root-bash.sh ~/;
 	echo "source ~/.fancy-user-bash.sh" >> ~/.bashrc
@@ -145,7 +143,7 @@ function icons() {
 	#gsettings set org.gnome.desktop.interface icon-theme 'Pop'
 	echo
 	git clone https://github.com/daniruiz/flat-remix && mkdir -p ~/.icons && cp -r flat-remix/Flat-Remix* ~/.icons/
-	gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix"
+	gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix-Blue"
 	
 	check_exit_status
 }
@@ -156,7 +154,7 @@ function dock() {
 	echo "Setting up Favorites to Dock icons."
 	echo
 	sleep 3s
-	gsettings set org.gnome.shell.favorite-apps Custom value ['firefox.desktop', 'chromium.desktop', 'org.gnome.Nautilus.desktop', 'simplenote.desktop', 'terminator.desktop', 'realvnc-vncviewer.desktop', 'com.teamviewer.TeamViewer.desktop', 'virtualbox.desktop', 'onboard.desktop']
+	gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'chromium.desktop', 'org.gnome.Nautilus.desktop', 'simplenote.desktop', 'terminator.desktop', 'realvnc-vncviewer.desktop', 'com.teamviewer.TeamViewer.desktop', 'virtualbox.desktop', 'onboard.desktop']"
 	
 	check_exit_status
 }
@@ -215,7 +213,7 @@ function virtualbox() {
 
             if [ "$answer" == "y" ]
             then
-                sudo pacman -S virtualbox-guest-utils
+                sudo pacman -S virtualbox-guest-utils --noconfirm
 
             fi
 
