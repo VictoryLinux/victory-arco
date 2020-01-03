@@ -30,7 +30,7 @@ check_exit_status() {
 	fi
 }
 
-greeting() {
+function greeting() {
 
 	echo
 	echo "+-------------------------------------------------------------------------+"
