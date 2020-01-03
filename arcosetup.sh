@@ -83,13 +83,13 @@ function gdm() {
 	sudo systemctl enable gdm.service -f;
 	check_exit_status
 	echo
-	echo "You now have a DE. Reboot now to finish in Gnome, or stay here and finish now"
+	echo "You now have a DE. stay here and finish now or reboot to finish in Gnome"
 	echo
 }
 
 # finish
 function finish() {
-	read -p "Do you want to continue now? (y/n) " answer 
+	read -p "Do you want to stay here and finish now? (y/n) " answer 
 
             if [ "$answer" == "y" ]
             then
