@@ -40,7 +40,7 @@ function greeting() {
 	echo "This is not a silent install" 
 	echo
 	echo "you will be asked several questions as it progresses"
-	sleep 5s
+	sleep 10s
 }
 
 # searching for the fastest mirrors
