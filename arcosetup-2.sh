@@ -153,9 +153,12 @@ function icons() {
 # Setting up Favorite Dock icons
 function dock() {
 
-	echo "Setting up Favorite Dock icons."
+	echo "Setting up the Dock."
 	echo
 	sleep 3s
+	cp /usr/share/applications/plank.desktop ~/.config/autostart/
+	sudo chmod +x ~/.config/autostart/plank.desktop
+	echo
 	gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'chromium.desktop', 'org.gnome.Nautilus.desktop', 'simplenote.desktop', 'terminator.desktop', 'realvnc-vncviewer.desktop', 'com.teamviewer.TeamViewer.desktop', 'virtualbox.desktop', 'onboard.desktop']"
 	
 	check_exit_status
