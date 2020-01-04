@@ -126,6 +126,8 @@ function fix_bashrc() {
 	echo "source ~/.fancy-user-bash.sh" >> ~/.bashrc
 	echo
 	gsettings set org.gnome.desktop.default-applications.terminal exec 'terminator'
+	echo
+	sudo ln -s /usr/bin/gnome-terminal
 	check_exit_status
 }
 
@@ -143,7 +145,7 @@ function icons() {
 	#gsettings set org.gnome.desktop.interface icon-theme 'Pop'
 	echo
 	git clone https://github.com/daniruiz/flat-remix && mkdir -p ~/.icons && cp -r flat-remix/Flat-Remix* ~/.icons/
-	gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix-Blue"
+	gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix-Blue-Dark"
 	
 	check_exit_status
 }
