@@ -121,8 +121,8 @@ function fix_bashrc() {
 	echo "Making Terminal fancy."
 	echo
 	sleep 3s
-	sudo cp Personal/.fancy-user-bash.sh ~/;
-	sudo cp Personal/.fancy-root-bash.sh ~/;
+	sudo cp -r Personal/.fancy-user-bash.sh ~/;
+	sudo cp -r Personal/.fancy-root-bash.sh ~/;
 	echo "source ~/.fancy-user-bash.sh" >> ~/.bashrc
 	echo
 	gsettings set org.gnome.desktop.default-applications.terminal exec 'terminator'
