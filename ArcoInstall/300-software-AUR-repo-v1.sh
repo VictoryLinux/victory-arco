@@ -63,12 +63,6 @@ sh AUR/install-onlyoffice-bin-v*.sh
 
 echo "Installing category Other"
 
-sh AUR/install-popsicle-gtk-git-v*.sh
-sh AUR/install-realvnc-vnc-server-v*.sh
-sh AUR/install-realvnc-vnc-viewer-v*.sh
-sh AUR/install-teamviewer-v*.sh
-
-
 echo "Installing category System"
 
 sh AUR/install-downgrade-v*.sh
@@ -90,6 +84,11 @@ sh AUR/install-ttf-font-awesome-v*.sh
 sh AUR/install-ttf-mac-fonts-v*.sh
 sh AUR/install-virtualbox-for-linux-v*.sh
 sh AUR/install-xcursor-breeze-v*.sh
+sh AUR/install-realvnc-vnc-server-v*.sh
+sh AUR/install-realvnc-vnc-viewer-v*.sh
+sh AUR/install-teamviewer-v*.sh
+sh AUR/install-popsicle-git-v*.sh
+
 
 # these come always last
 
