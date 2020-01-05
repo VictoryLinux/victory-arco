@@ -89,6 +89,8 @@ function aur_update() {
 function housekeeping() {
 
 	echo "Cleaning up."
+	sudo rm -rf /usr/share/backgrounds/arcolinux
+	sudo rm -rf /usr/share/backgrounds/gnome
 	sudo pacman -Rns $(pacman -Qtdq) --noconfirm;
 }
 
