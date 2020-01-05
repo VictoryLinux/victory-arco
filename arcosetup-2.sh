@@ -218,7 +218,7 @@ function virtualbox() {
 
             if [ "$answer" == "y" ]
             then
-                sudo pacman -S virtualbox-guest-utils --noconfirm
+                sudo pacman -S virtualbox-guest-modules-arch virtualbox-guest-utils --noconfirm
 
             fi
 
