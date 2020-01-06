@@ -144,7 +144,12 @@ function icons() {
 	sudo mv pop-icon-theme/ ~/;
 	#gsettings set org.gnome.desktop.interface icon-theme 'Pop'
 	echo
-	git clone https://github.com/daniruiz/flat-remix && mkdir -p ~/.icons && cp -r flat-remix/Flat-Remix* ~/.icons/
+	git clone https://github.com/daniruiz/flat-remix
+	git clone https://github.com/daniruiz/flat-remix-gtk
+	mkdir -p ~/.icons && mkdir -p ~/.themes
+	cp -r flat-remix/Flat-Remix* ~/.icons/ && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/
+	rm -rf /usr/share/backgrounds/arcolinux
+	gsettings set org.gnome.desktop.interface gtk-theme "Flat-Remix-GTK-Blue-Dark"
 	gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix-Blue-Dark"
 	
 	check_exit_status
