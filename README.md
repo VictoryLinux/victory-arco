@@ -1,6 +1,10 @@
+# Viccktory-Gnome
+
 # Forked from ArcoLinuxD Gnome desktop
 
 This is a continual work in progress to try to create as close to an automated setup as I can.
+
+Scripts to achieve Arcolinux Victory Edition the long way
 
 # Installation Process
 
