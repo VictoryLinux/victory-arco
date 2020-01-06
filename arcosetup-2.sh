@@ -134,7 +134,7 @@ function fix_bashrc() {
 # Installing my Icon Themes
 function icons() {
 
-	echo "Installing my Icon Themes."
+	echo "Giving Gnome a facelift."
 	echo
 	sleep 3s
 	git clone https://github.com/pop-os/icon-theme pop-icon-theme
