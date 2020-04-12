@@ -21,11 +21,11 @@ https://sourceforge.net/projects/arcolinux/files/ArcoLinuxD/
 Run these commands in this order:
 
 
-    git clone https://github.com/Vicck-tech/viccktory-gnome
+    git clone https://github.com/VictoryLinux/victory-gnome
 
-    chmod +x ~/viccktory-gnome/*.sh 
+    chmod +x ~/victory-gnome/*.sh 
 
-    cd viccktory-gnome
+    cd victory-gnome
 
     ./arcosetup.sh
 
