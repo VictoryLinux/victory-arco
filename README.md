@@ -1,4 +1,4 @@
-# Viccktory-Gnome
+# Victory-Gnome
 
 # Forked from ArcoLinuxD Gnome desktop
 
