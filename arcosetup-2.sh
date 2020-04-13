@@ -187,12 +187,13 @@ function backgrounds() {
 	echo "Setting up Favorite Wallpaper."
 	echo
 	sleep 3s
-	sudo mv ~/arco-gnome/Personal/backgrounds/my_arcolinux /usr/share/backgrounds/
-	sudo mv ~/arco-gnome/Personal/backgrounds/my_gnome /usr/share/backgrounds/
-	sudo mv ~/arco-gnome/Personal/backgrounds/my_wall /usr/share/backgrounds/
+#	sudo mv ~/victory-gnome/Personal/backgrounds/my_arcolinux /usr/share/backgrounds/
+#	sudo mv ~/victory-gnome/Personal/backgrounds/my_gnome /usr/share/backgrounds/
+#	sudo mv ~/victory-gnome/Personal/backgrounds/my_wall /usr/share/backgrounds/
+	sudo mv ~/victory-gnome/Personal/backgrounds/victory /usr/share/backgrounds/
 	echo
-	sudo rm -rf /usr/share/backgrounds/arcolinux
-	sudo rm -rf /usr/share/backgrounds/gnome
+#	sudo rm -rf /usr/share/backgrounds/arcolinux
+#	sudo rm -rf /usr/share/backgrounds/gnome
 	check_exit_status
 }
 
