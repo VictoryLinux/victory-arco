@@ -121,13 +121,13 @@ function fix_bashrc() {
 	echo "Making Terminal fancy."
 	echo
 	sleep 3s
-	sudo cp -r Personal/.fancy-user-bash.sh ~/;
-	sudo cp -r Personal/.fancy-root-bash.sh ~/;
+	sudo mv Personal/.fancy-user-bash.sh ~/;
+	sudo mv Personal/.fancy-root-bash.sh ~/;
 	echo "source ~/.fancy-user-bash.sh" >> ~/.bashrc
 	echo
-	gsettings set org.gnome.desktop.default-applications.terminal exec 'terminator'
-	echo
-	sudo ln -s /usr/bin/gnome-terminal
+#	gsettings set org.gnome.desktop.default-applications.terminal exec 'terminator'
+#	echo
+#	sudo ln -s /usr/bin/gnome-terminal
 	check_exit_status
 }
 
@@ -256,7 +256,7 @@ fix_bashrc
 icons
 dock
 backgrounds
-nvidia
-intel
+#nvidia
+#intel
 #virtualbox
 leave
