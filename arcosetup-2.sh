@@ -123,7 +123,8 @@ function fix_bashrc() {
 	sleep 3s
 	sudo mv Personal/.fancy-user-bash.sh ~/;
 	sudo mv Personal/.fancy-root-bash.sh ~/;
-	echo "source ~/.fancy-user-bash.sh" >> ~/.bashrc
+	echo '
+	"source ~/.fancy-user-bash.sh" | sudo tee --append ~/.bashrc
 	echo
 #	gsettings set org.gnome.desktop.default-applications.terminal exec 'terminator'
 #	echo
