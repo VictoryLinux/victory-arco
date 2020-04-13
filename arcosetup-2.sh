@@ -132,6 +132,17 @@ function fix_bashrc() {
 	check_exit_status
 }
 
+# Put the .face img in home folder
+function face() {
+
+	echo "Fixing my face."
+	echo
+	sleep 3s
+	sudo mv Personal/.face ~/;
+	echo
+	check_exit_status
+}
+
 # Installing my Icon Themes
 function icons() {
 
@@ -254,6 +265,7 @@ debloat
 arco
 update_script
 fix_bashrc
+face
 icons
 dock
 backgrounds
