@@ -95,7 +95,7 @@ function finish() {
             then
             	cd arco-gnome
 		echo
-		sh arcosetup-2.sh
+		sh arcosetup-victory.sh
 
             if [ "$answer" == "n" ]
             then
