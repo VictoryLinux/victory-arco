@@ -21,7 +21,7 @@ echo
 sudo pacman -S arcolinux-arc-themes-nico-git --noconfirm --needed
 sudo pacman -S arcolinux-bin-git --noconfirm --needed
 #sudo pacman -S arcolinux-common-git --noconfirm --needed
-#sudo pacman -S arcolinux-conky-collection-git --noconfirm --needed
+sudo pacman -S arcolinux-conky-collection-git --noconfirm --needed
 #sudo pacman -S arcolinux-conky-collection-plasma-git --noconfirm --needed
 sudo pacman -S arcolinux-cron-git --noconfirm --needed
 #sudo pacman -S arcolinux-docs-git --noconfirm --needed
@@ -32,9 +32,9 @@ sudo pacman -S arcolinux-fonts-git --noconfirm --needed
 #sudo pacman -S arcolinux-kvantum-git --noconfirm --needed
 #sudo pacman -S arcolinux-kvantum-lxqt-git --noconfirm --needed
 #sudo pacman -S arcolinux-kvantum-plasma-git --noconfirm --needed
-#sudo pacman -S arcolinux-lightdm-gtk-greeter --noconfirm --needed
+sudo pacman -S arcolinux-lightdm-gtk-greeter --noconfirm --needed
 #sudo pacman -S arcolinux-lightdm-gtk-greeter-plasma --noconfirm --needed
-#sudo pacman -S arcolinux-lightdm-gtk-greeter-settings --noconfirm --needed
+sudo pacman -S arcolinux-lightdm-gtk-greeter-settings --noconfirm --needed
 #sudo pacman -S arcolinux-local-applications-git --noconfirm --needed
 #sudo pacman -S arcolinux-local-xfce4-git --noconfirm --needed
 sudo pacman -S arcolinux-logo-git --noconfirm --needed
@@ -65,7 +65,7 @@ sudo pacman -S arcolinux-system-config-git --noconfirm --needed
 #sudo pacman -S arcolinux-tint2-git --noconfirm --needed
 #sudo pacman -S arcolinux-tint2-themes-git --noconfirm --needed
 sudo pacman -S arcolinux-variety-git --noconfirm --needed
-sudo pacman -S arcolinux-wallpapers-git --noconfirm --needed
+#sudo pacman -S arcolinux-wallpapers-git --noconfirm --needed
 #sudo pacman -S arcolinux-wallpapers-lxqt-dual-git --noconfirm --needed
 #sudo pacman -S arcolinux-xfce4-panel-profiles-git --noconfirm --needed
 #sudo pacman -S arcolinux-xmobar-git --noconfirm --needed
@@ -144,7 +144,7 @@ echo
 #sudo pacman -S --noconfirm --needed  arcolinux-deepin-dconf-git
 #sudo pacman -S --noconfirm --needed  arcolinux-dwm-dconf-git
 #sudo pacman -S --noconfirm --needed  arcolinux-enlightenment-dconf-git
-sudo pacman -S --noconfirm --needed  arcolinux-gnome-dconf-git
+#sudo pacman -S --noconfirm --needed  arcolinux-gnome-dconf-git
 #sudo pacman -S --noconfirm --needed  arcolinux-herbstluftwm-dconf-git
 #sudo pacman -S --noconfirm --needed  arcolinux-i3wm-dconf-git
 #sudo pacman -S --noconfirm --needed  arcolinux-jwm-dconf-git
