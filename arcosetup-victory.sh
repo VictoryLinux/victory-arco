@@ -34,7 +34,7 @@ function greeting() {
 
 	echo
 	echo "+-------------------------------------------------------------------------+"
-	echo "|-- Hello, $USER. Let's Finish settting up your fresh ArcoLinux install.--|"
+	echo "|-- Hello, $USER. Let's Finish settting up your fresh ArcoLinux-Edition.--|"
 	echo "+-------------------------------------------------------------------------+"
 	echo
 	echo "This is not a silent install" 
@@ -93,14 +93,36 @@ function arco() {
 	sh ArcoInstall/600-software-from-ArcoLinux-repo-v*.sh
 	sh ArcoInstall/700-installing-fonts-v*.sh
 	sh ArcoInstall/900-fix-microcode-error-v*.sh
-	read -p "Is this a laptop? (y/n) " answer
-
-            if [ "$answer" == "y" ]
-            then
-                sh ArcoInstall/160-install-tlp-for-laptops-v*.sh
-            fi
 
 	check_exit_status
+}
+
+# Settings for laptops
+function laptop() {
+HEIGHT=15
+WIDTH=40
+CHOICE_HEIGHT=4
+BACKTITLE="VictoryLinux"
+TITLE="Laptop"
+MENU="Are you installing VictoryLinux-Edition on a Laptop?"
+OPTIONS=(1 "Yes"
+         2 "No")
+CHOICE=$(dialog --clear \
+                --backtitle "$BACKTITLE" \
+                --title "$TITLE" \
+                --menu "$MENU" \
+                $HEIGHT $WIDTH $CHOICE_HEIGHT \
+                "${OPTIONS[@]}" \
+                2>&1 >/dev/tty)
+clear
+case $CHOICE in
+        1)
+            sh ArcoInstall/160-install-tlp-for-laptops-v*.sh
+            ;;
+        2)
+	    echo "Skipping"
+            ;;
+esac
 }
 
 # copy update script to final location
@@ -217,7 +239,7 @@ BACKTITLE="VictoryLinux"
 TITLE="Video Driver"
 MENU="Choose one of the following options:"
 
-OPTIONS=(1 "No Thanks, they're already installed"
+OPTIONS=(1 "No Thanks, dont need either"
          2 "Nvidia"
 	 3 "Intel")
 
@@ -232,7 +254,7 @@ CHOICE=$(dialog --clear \
 clear
 case $CHOICE in
         1)
-            echo "You chose None"
+            echo "Skipping, You chose Neither"
             ;;
         2)
 	    sudo pacman -S nvidia nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
@@ -269,64 +291,40 @@ case $CHOICE in
             sudo systemctl enable gdm.service -f
             ;;
         2)
-	    sudo pacman -S lightdm
-	    echo
 	    sudo systemctl enable lightdm.service -f;
             ;;
 esac
 }
 
-ng Intel drivers,if needed
-function gdm() {
-
-	echo "Installing Intel drivers,if needed."
-	echo
-	read -p "Did yo install GDM? (y/n) " answer
-
-            if [ "$answer" == "y" ]
-            then
-                echo "Enabling GDM."
-		echo
-		sleep 3s
-		sudo systemctl enable gdm.service -f;
-
-            fi
-
-	check_exit_status
-}
-
 # Installing Intel drivers,if needed
-function lightdm() {
-
-	echo "Installing Intel drivers,if needed."
-	echo
-	read -p "Did yo install lightdm? (y/n) " answer
-
-            if [ "$answer" == "y" ]
-            then
-                echo "Enabling lightdm."
-		echo
-		sleep 3s
-		sudo systemctl enable lightdm.service -f;
-
-            fi
-
-	check_exit_status
-}
-
-# Put the fancy bash promt back after updating
 function virtualbox() {
+HEIGHT=15
+WIDTH=40
+CHOICE_HEIGHT=4
+BACKTITLE="VictoryLinux"
+TITLE="virtualbox"
+MENU="Do you need Guest aditions?:"
 
-	echo
-	read -p "Is this being setup in virtualbox? (y/n) " answer
+OPTIONS=(1 "No Thanks, dont need it"
+         2 "Install Guest aditions")
 
-            if [ "$answer" == "y" ]
-            then
-                sudo pacman -S virtualbox-guest-modules-arch virtualbox-guest-utils --noconfirm
+CHOICE=$(dialog --clear \
+                --backtitle "$BACKTITLE" \
+                --title "$TITLE" \
+                --menu "$MENU" \
+                $HEIGHT $WIDTH $CHOICE_HEIGHT \
+                "${OPTIONS[@]}" \
+                2>&1 >/dev/tty)
 
-            fi
-
-	check_exit_status
+clear
+case $CHOICE in
+        1)
+            echo "Skipping, You chose No."
+            ;;
+        2)
+	    sudo pacman -S virtualbox-guest-modules-arch virtualbox-guest-utils --noconfirm
+            ;;
+esac
 }
 
 
@@ -352,6 +350,7 @@ mirror
 general_update
 debloat
 arco
+laptop
 flatpak
 update_script
 fix_bashrc
@@ -359,9 +358,7 @@ face
 icons
 dock
 backgrounds
-#nvidia
-#intel
-#virtualbox
-gdm
-lightdm
+video-driver
+dm
+virtualbox
 leave
