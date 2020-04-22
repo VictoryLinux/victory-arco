@@ -3,7 +3,7 @@
 
 ##################################################################################################################
 # Author        :Erik Dubois
-# Forked by     :Vicck-tech 
+# Forked by     :VictoryLinux
 # 
 # Forked and edited for my personal needs
 # 
