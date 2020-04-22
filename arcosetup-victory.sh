@@ -208,38 +208,75 @@ function backgrounds() {
 	check_exit_status
 }
 
-# Installing Nvidia drivers,if needed
-function nvidia() {
+# searching for the fastest mirrors
+function video-driver() {
+HEIGHT=15
+WIDTH=40
+CHOICE_HEIGHT=4
+BACKTITLE="VictoryLinux"
+TITLE="Video Driver"
+MENU="Choose one of the following options:"
 
-	echo "Installing Nvidia drivers,if needed."
-	echo
-	read -p "Do you need Nvidia video drivers? (y/n) " answer
+OPTIONS=(1 "No Thanks, they're already installed"
+         2 "Nvidia"
+	 3 "Intel")
 
-            if [ "$answer" == "y" ]
-            then
-                sudo pacman -S nvidia nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
-            fi
+CHOICE=$(dialog --clear \
+                --backtitle "$BACKTITLE" \
+                --title "$TITLE" \
+                --menu "$MENU" \
+                $HEIGHT $WIDTH $CHOICE_HEIGHT \
+                "${OPTIONS[@]}" \
+                2>&1 >/dev/tty)
 
-	check_exit_status
+clear
+case $CHOICE in
+        1)
+            echo "You chose None"
+            ;;
+        2)
+	    sudo pacman -S nvidia nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
+            ;;
+	3)
+            sudo pacman -S lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
+            ;;
+esac
 }
 
-# Installing Intel drivers,if needed
-function intel() {
+# searching for the fastest mirrors
+function dm() {
+HEIGHT=15
+WIDTH=40
+CHOICE_HEIGHT=4
+BACKTITLE="VictoryLinux"
+TITLE="Display Manager"
+MENU="Choose one of the following options:"
 
-	echo "Installing Intel drivers,if needed."
-	echo
-	read -p "Do you need Intel video drivers? (y/n) " answer
+OPTIONS=(1 "GDM"
+         2 "LightDM")
 
-            if [ "$answer" == "y" ]
-            then
-                sudo pacman -S lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
+CHOICE=$(dialog --clear \
+                --backtitle "$BACKTITLE" \
+                --title "$TITLE" \
+                --menu "$MENU" \
+                $HEIGHT $WIDTH $CHOICE_HEIGHT \
+                "${OPTIONS[@]}" \
+                2>&1 >/dev/tty)
 
-            fi
-
-	check_exit_status
+clear
+case $CHOICE in
+        1)
+            sudo systemctl enable gdm.service -f
+            ;;
+        2)
+	    sudo pacman -S lightdm
+	    echo
+	    sudo systemctl enable lightdm.service -f;
+            ;;
+esac
 }
 
-# Installing Intel drivers,if needed
+ng Intel drivers,if needed
 function gdm() {
 
 	echo "Installing Intel drivers,if needed."
