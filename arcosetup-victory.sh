@@ -104,6 +104,17 @@ function arco() {
 }
 
 # copy update script to final location
+function flatpak() {
+
+#	echo "Moving Update Script to final location."
+	echo
+#	sleep 3s
+	flatpak install flathub org.glimpse_editor.Glimpse;
+	echo
+	check_exit_status
+}
+
+# copy update script to final location
 function update_script() {
 
 	echo "Moving Update Script to final location."
@@ -304,6 +315,7 @@ mirror
 general_update
 debloat
 arco
+flatpak
 update_script
 fix_bashrc
 face
