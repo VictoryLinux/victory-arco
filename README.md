@@ -31,12 +31,14 @@ Run these commands in this order:
     cd victory-gnome
     
 1.) If you want to install Gnome DE
+    
     ./arcosetup-gnome.sh
     
 If you run this one first, it should continue to the second script automatically
 
     
 2.) If you have already installed Gnome DE
+    
     ./arcosetup-victory.sh
     
 you will be asked several questions as it progresses, when it reboots you should be good to go.
