@@ -26,8 +26,14 @@ Run these commands in this order:
     chmod +x ~/victory-gnome/*.sh 
 
     cd victory-gnome
-
-    ./arcosetup.sh
+    
+    If you want to install Gnome DE
+    ./arcosetup-gnome.sh
+    
+    If you have already installed Gnome DE
+    ./arcosetup-victory.sh
+    
+you will be asked several questions as it progresses, when it reboots you should be good to go.
 
 
 # Learn
