@@ -228,6 +228,44 @@ function intel() {
 	check_exit_status
 }
 
+# Installing Intel drivers,if needed
+function gdm() {
+
+	echo "Installing Intel drivers,if needed."
+	echo
+	read -p "Did yo install GDM? (y/n) " answer
+
+            if [ "$answer" == "y" ]
+            then
+                echo "Enabling GDM."
+		echo
+		sleep 3s
+		sudo systemctl enable gdm.service -f;
+
+            fi
+
+	check_exit_status
+}
+
+# Installing Intel drivers,if needed
+function lightdm() {
+
+	echo "Installing Intel drivers,if needed."
+	echo
+	read -p "Did yo install lightdm? (y/n) " answer
+
+            if [ "$answer" == "y" ]
+            then
+                echo "Enabling lightdm."
+		echo
+		sleep 3s
+		sudo systemctl enable lightdm.service -f;
+
+            fi
+
+	check_exit_status
+}
+
 # Put the fancy bash promt back after updating
 function virtualbox() {
 
@@ -242,6 +280,8 @@ function virtualbox() {
 
 	check_exit_status
 }
+
+
 
 function leave() {
 
@@ -273,4 +313,6 @@ backgrounds
 #nvidia
 #intel
 #virtualbox
+gdm
+lightdm
 leave
