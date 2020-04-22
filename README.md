@@ -24,11 +24,11 @@ Run the ArcoLinuxD Iso to install the Arch framework.
 Run these commands in this order:
 
 
-    git clone https://github.com/VictoryLinux/victory-gnome
+    git clone https://github.com/VictoryLinux/victory-edition
 
-    chmod +x ~/victory-gnome/*.sh 
+    chmod +x ~/victory-edition/*.sh 
 
-    cd victory-gnome
+    cd victory-edition
     
 1.) If you want to install Gnome DE
     
