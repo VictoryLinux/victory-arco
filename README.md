@@ -2,9 +2,11 @@
 
 # Forked from ArcoLinuxD Gnome desktop
 
+This is a personal setup of Arcolinux. I make this available to anyone to use or change.
+
 This is a continual work in progress to try to create as close to an automated setup as I can.
 
-Scripts to achieve Arcolinux Victory Edition the long way
+Scripts to achieve Arcolinux Victory Edition the long way.
 
 # Installation Process
 
@@ -16,7 +18,8 @@ you will be asked several questions as it progresses
 
 
 Run the ArcoLinuxD Iso to install the Arch framework.
-https://sourceforge.net/projects/arcolinux/files/ArcoLinuxD/
+      
+      https://sourceforge.net/projects/arcolinux/files/ArcoLinuxD/
 
 Run these commands in this order:
 
