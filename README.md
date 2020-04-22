@@ -19,7 +19,7 @@ you will be asked several questions as it progresses
 
 Run the ArcoLinuxD Iso to install the Arch framework.
       
-      https://sourceforge.net/projects/arcolinux/files/ArcoLinuxD/
+   https://sourceforge.net/projects/arcolinux/files/ArcoLinuxD/
 
 Run these commands in this order:
 
