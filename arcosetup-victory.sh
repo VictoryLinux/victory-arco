@@ -123,6 +123,7 @@ case $CHOICE in
 	    echo "Skipping"
             ;;
 esac
+done
 }
 
 # copy update script to final location
