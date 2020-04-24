@@ -77,7 +77,7 @@ function arco() {
 	echo "Running Arco Linux Setup Scripts"
 	echo
 	sleep 3s
-	cd /arco-gnome/ArcoInstall/
+	cd /victory-edition/ArcoInstall/
 	echo
 	sh ArcoInstall/000-use-all-cores-makepkg-conf-v*.sh
 	sh ArcoInstall/110-install-sound-v*.sh
@@ -99,30 +99,13 @@ function arco() {
 
 # Settings for laptops
 function laptop() {
-HEIGHT=15
-WIDTH=40
-CHOICE_HEIGHT=4
-BACKTITLE="VictoryLinux"
-TITLE="Laptop"
-MENU="Are you installing VictoryLinux-Edition on a Laptop?"
-OPTIONS=(1 "Yes"
-         2 "No")
-CHOICE=$(dialog --clear \
-                --backtitle "$BACKTITLE" \
-                --title "$TITLE" \
-                --menu "$MENU" \
-                $HEIGHT $WIDTH $CHOICE_HEIGHT \
-                "${OPTIONS[@]}" \
-                2>&1 >/dev/tty)
-clear
-case $CHOICE in
-        1)
-            sh ArcoInstall/160-install-tlp-for-laptops-v*.sh
-            ;;
-        2)
-	    echo "Skipping"
-            ;;
-esac
+	echo
+	echo "Running Arco Linux Setup Scripts"
+	echo
+	sleep 3s
+	cd /victory-edition/victory/
+	echo
+	sh victory/laptop*.sh
 
 }
 
@@ -233,101 +216,39 @@ function backgrounds() {
 
 # searching for the fastest mirrors
 function video-driver() {
-HEIGHT=15
-WIDTH=40
-CHOICE_HEIGHT=4
-BACKTITLE="VictoryLinux"
-TITLE="Video Driver"
-MENU="Choose one of the following options:"
+	echo
+	echo "Running Arco Linux Setup Scripts"
+	echo
+	sleep 3s
+	cd /victory-edition/victory/
+	echo
+	sh victory/gpu*.sh
 
-OPTIONS=(1 "No Thanks, dont need either"
-         2 "Nvidia"
-	 3 "Intel")
-
-CHOICE=$(dialog --clear \
-                --backtitle "$BACKTITLE" \
-                --title "$TITLE" \
-                --menu "$MENU" \
-                $HEIGHT $WIDTH $CHOICE_HEIGHT \
-                "${OPTIONS[@]}" \
-                2>&1 >/dev/tty)
-
-clear
-case $CHOICE in
-        1)
-            echo "Skipping, You chose Neither"
-            ;;
-        2)
-	    sudo pacman -S nvidia nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
-            ;;
-	3)
-            sudo pacman -S lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
-            ;;
-esac
 }
 
 # searching for the fastest mirrors
 function dm() {
-HEIGHT=15
-WIDTH=40
-CHOICE_HEIGHT=4
-BACKTITLE="VictoryLinux"
-TITLE="Display Manager"
-MENU="Choose one of the following options:"
+	echo
+	echo "Running Arco Linux Setup Scripts"
+	echo
+	sleep 3s
+	cd /victory-edition/victory/
+	echo
+	sh victory/dm*.sh
 
-OPTIONS=(1 "GDM"
-         2 "LightDM")
-
-CHOICE=$(dialog --clear \
-                --backtitle "$BACKTITLE" \
-                --title "$TITLE" \
-                --menu "$MENU" \
-                $HEIGHT $WIDTH $CHOICE_HEIGHT \
-                "${OPTIONS[@]}" \
-                2>&1 >/dev/tty)
-
-clear
-case $CHOICE in
-        1)
-            sudo systemctl enable gdm.service -f
-            ;;
-        2)
-	    sudo systemctl enable lightdm.service -f;
-            ;;
-esac
 }
 
 # Installing Intel drivers,if needed
 function virtualbox() {
-HEIGHT=15
-WIDTH=40
-CHOICE_HEIGHT=4
-BACKTITLE="VictoryLinux"
-TITLE="virtualbox"
-MENU="Do you need Guest aditions?:"
+	echo
+	echo "Running Arco Linux Setup Scripts"
+	echo
+	sleep 3s
+	cd /victory-edition/victory/
+	echo
+	sh victory/vbox*.sh
 
-OPTIONS=(1 "No Thanks, dont need it"
-         2 "Install Guest aditions")
-
-CHOICE=$(dialog --clear \
-                --backtitle "$BACKTITLE" \
-                --title "$TITLE" \
-                --menu "$MENU" \
-                $HEIGHT $WIDTH $CHOICE_HEIGHT \
-                "${OPTIONS[@]}" \
-                2>&1 >/dev/tty)
-
-clear
-case $CHOICE in
-        1)
-            echo "Skipping, You chose No."
-            ;;
-        2)
-	    sudo pacman -S virtualbox-guest-modules-arch virtualbox-guest-utils --noconfirm
-            ;;
-esac
 }
-
 
 
 function leave() {
