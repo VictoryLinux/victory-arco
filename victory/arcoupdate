@@ -1,0 +1,129 @@
+#!/bin/bash
+# Update script for ArcoLinux
+
+# Make sure each command executes properly
+check_exit_status() {
+
+	if [ $? -eq 0 ]
+	then
+		echo
+		echo "Success"
+		echo
+	else
+		echo
+		echo "[ERROR] Update Failed! Check the errors and try again"
+		echo
+		
+		read -p "The last command exited with an error. Exit script? (y/n) " answer
+
+            if [ "$answer" == "y" ]
+            then
+                exit 1
+            fi
+	fi
+}
+
+function greeting() {
+
+	echo 
+	echo "Hello, $USER. Let's update your ArcoLinux."
+	echo
+}
+
+# searching for the fastest mirrors
+function mirror() {
+
+	echo "Updating your Mirrors."
+	sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist;
+	check_exit_status
+}
+
+# Downloading and installing all Arch Linux and ArcoLinux packages
+function general_update() {
+
+	echo "Updating Arch & Arco."
+	sudo pacman -Syyu --noconfirm;
+	check_exit_status
+}
+
+# Copy/paste all config files from /etc/skel to your home directory
+function skel() {
+
+	echo "Running Skel."
+#	cp -rf /etc/skel/. ~;
+	cp -Rf ~/.config ~/.config-backup-$(date +%Y.%m.%d-%H.%M.%S) && cp -rf /etc/skel/* ~;
+	check_exit_status
+}
+
+# Put the fancy bash promt back after updating
+function fix_bashrc() {
+
+	echo "Putting Bashrc back together."
+	echo 'source ~/.fancy-user-bash.sh' | sudo tee --append /etc/skel/.bashrc
+	check_exit_status
+}
+
+# Copy over all new bashrc changes, including fix_bashrc
+function copy_over_newest_bashrc() {
+
+	sudo cp /etc/skel/.bashrc ~/.bashrc && source ~/.bashrc;
+	check_exit_status
+}
+
+# Now update the rest – Only AUR packages will now be updated
+function aur_update() {
+
+	echo "Updating the AUR."
+	yay -Syu --noconfirm;
+	check_exit_status
+}
+
+# Perform the maintenance and clean-up duties, remove orphaned files to keep the system running optimally
+function housekeeping() {
+	
+		echo
+#		read -p "Are you ready to clean up? (y/n) " answer
+
+#            if [ "$answer" == "y" ]
+#            then
+        echo "Cleaning up."
+#		sudo rm -rf /usr/share/backgrounds/arcolinux
+#		sudo rm -rf /usr/share/backgrounds/gnome
+		sudo pacman -Rns $(pacman -Qtdq) --noconfirm;
+#            fi
+}
+	
+
+function leave() {
+
+	echo
+	echo "-------------------------------------"
+	echo "---- ArcoLinux has been updated! ----"
+	echo "-------------------------------------"
+	echo
+	echo "For more info on Arcolinux visit:"
+	echo "https://arcolinux.info/"
+	echo "https://arcolinux.com/"
+	echo "https://arcolinuxb.com/"
+	echo "https://arcolinuxd.com/"
+	echo "https://arcolinuxiso.com/"
+	echo
+	echo "Now Stay Rolling."
+	echo
+	echo
+	echo "Type: cd "$HOME/.bin/stay-rolling" && ls"
+	echo
+	echo "to run the latest and stay rolling."
+	echo
+	exit
+}
+
+greeting
+mirror
+general_update
+skel
+fix_bashrc
+#copy_over_newest_bashrc
+aur_update
+housekeeping
+leave
