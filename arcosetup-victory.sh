@@ -40,6 +40,9 @@ function greeting() {
 	echo
 	echo "DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK."
 	echo
+	echo
+	echo
+	echo
 	echo "This is NOT a silent install" 
 	echo
 	echo "you will be asked several questions as it progresses"
