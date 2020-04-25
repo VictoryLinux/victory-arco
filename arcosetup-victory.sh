@@ -44,6 +44,7 @@ function greeting() {
 	echo "Things you need to know before you start"
 	echo
 	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+	echo "+++++  Things you need to know before you start  +++++"
 	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 	echo "++ 1.) Your username & a password for SAMBA install ++"
 	echo "++ 2.) What GPU driver you need, Nvidia or Intel    ++"
