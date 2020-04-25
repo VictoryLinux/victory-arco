@@ -40,7 +40,47 @@ function greeting() {
 	echo "This is not a silent install" 
 	echo
 	echo "you will be asked several questions as it progresses"
-	sleep 5s
+	echo
+	echo "Things you need to know before you start"
+	echo
+	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+	echo "++ 1.) Your username & a password for SAMBA install ++"
+	echo "++ 2.) What GPU driver you need, Nvidia or Intel    ++"
+	echo "++ 3.) Is this a Virtualbox VM                      ++"
+	echo "++ 4.) Do you want to use GDM or LightDM            ++"
+	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+#	sleep 5s
+	echo "ARE YOU READY TO START? [y,n]"
+	read input
+
+	# did we get an input value?
+	if [ "$input" == "" ]; then
+
+	   echo "Nothing was entered by the user"
+
+	# was it a y or a yes?
+	elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
+
+	   echo "You replied $input, you are ready to start"
+	   echo
+	   echo "Starting Arcolinux Victory-Edition install script."
+	   echo
+	   sleep 3s
+
+	# treat anything else as a negative response
+	else
+
+	   echo "You replied $input, this is not a VM"
+	   echo
+	   echo "Moving on"
+
+fi
+
+	echo
+	
+	check_exit_status
 }
 
 # searching for the fastest mirrors
@@ -446,5 +486,5 @@ nvidia
 intel
 gdm
 lightdm
-#virtualbox
+virtualbox
 leave
