@@ -51,6 +51,8 @@ function greeting() {
 	echo "++ 4.) Do you want to use GDM or LightDM            ++"
 	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+	echo
+	echo
 #	sleep 5s
 	echo "ARE YOU READY TO START? [y,n]"
 	read input
