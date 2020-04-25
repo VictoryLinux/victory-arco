@@ -5,7 +5,7 @@
 # # Aurthor     :VictoryLinux
 # 
 # 
-# 
+# # Scroll to the very bottom to alter what is executed in this script.
 ##################################################################################################################
 
 # Make sure each command executes properly
