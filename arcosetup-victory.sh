@@ -106,7 +106,9 @@ function laptop() {
 	cd /victory-edition/victory/
 	echo
 	sh victory/laptop*.sh
-
+	echo
+	
+	check_exit_status
 }
 
 # copy update script to final location
@@ -155,7 +157,7 @@ function face() {
 	echo "Fixing my face."
 	echo
 	sleep 3s
-	sudo mv Personal/.face ~/;
+	sudo mv victory/.face ~/;
 	echo
 	check_exit_status
 }
@@ -204,10 +206,10 @@ function backgrounds() {
 	echo "Setting up Favorite Wallpaper."
 	echo
 	sleep 3s
-#	sudo mv ~/victory-gnome/Personal/backgrounds/my_arcolinux /usr/share/backgrounds/
-#	sudo mv ~/victory-gnome/Personal/backgrounds/my_gnome /usr/share/backgrounds/
-#	sudo mv ~/victory-gnome/Personal/backgrounds/my_wall /usr/share/backgrounds/
-	sudo mv ~/victory-gnome/Personal/backgrounds/victory /usr/share/backgrounds/
+#	sudo mv ~/victory-edition/victory/backgrounds/my_arcolinux /usr/share/backgrounds/
+#	sudo mv ~/victory-edition/victory/backgrounds/my_gnome /usr/share/backgrounds/
+#	sudo mv ~/victory-edition/victory/backgrounds/my_wall /usr/share/backgrounds/
+	sudo mv ~/victory-edition/victory/backgrounds/victory /usr/share/backgrounds/
 	echo
 #	sudo rm -rf /usr/share/backgrounds/arcolinux
 #	sudo rm -rf /usr/share/backgrounds/gnome
