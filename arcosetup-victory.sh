@@ -110,9 +110,9 @@ function laptop() {
 	# was it a y or a yes?
 	elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
 
-	   echo "You replied $input, this is a laptop"
+	   echo "You replied $input, this is a laptop."
 	   echo
-	   echo "Running setup for laptops"
+	   echo "Running setup for laptops."
 	   echo
 	   cd /victory-edition/ArcoInstall/
            echo
@@ -250,7 +250,7 @@ function nvidia() {
 	# was it a y or a yes?
 	elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
 
-	   echo "You replied $input, you do need nvidia driver"
+	   echo "You replied $input, you do need Nvidia driver"
 	   echo
 	   echo "Installing Nvidia driver"
 	   echo
@@ -262,41 +262,6 @@ function nvidia() {
 	else
 
 	   echo "You replied $input, you don't need nvidia driver"
-	   echo
-	   echo "Moving on"
-
-fi
-
-	echo
-	
-	check_exit_status
-}
-
-# searching for the fastest mirrors
-function nvidia() {
-	echo "DO YOU NEED NVIDIA VIDEO DRIVERS? [y,n]"
-	read input
-
-	# did we get an input value?
-	if [ "$input" == "" ]; then
-
-	   echo "Nothing was entered by the user"
-
-	# was it a y or a yes?
-	elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
-
-	   echo "You replied $input, you do need nvidia video driver"
-	   echo
-	   echo "Installing Nvidia video driver"
-	   echo
-	   sleep 3s
-           echo
-           sudo pacman -S nvidia nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
-
-	# treat anything else as a negative response
-	else
-
-	   echo "You replied $input, you don't need nvidia video driver"
 	   echo
 	   echo "Moving on"
 
@@ -320,7 +285,7 @@ function intel() {
 	# was it a y or a yes?
 	elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
 
-	   echo "You replied $input, you do need Intel Video driver"
+	   echo "You replied $input, you do need Intel video driver"
 	   echo
 	   echo "Installing Intel video driver"
 	   echo
@@ -342,12 +307,9 @@ fi
 	check_exit_status
 }
 
-	echo "DO YOU NEED GDM DISPLAY MANAGER VIDEO DRIVERS? [y,n]"
-
-
-# Installing Guest Aditions,if needed
-function virtualbox() {
-	echo "IS THIS A VM, INSTALL GUEST ADITIONS? [y,n]"
+# searching for the fastest mirrors
+function gdm() {
+	echo "DO YOU WANT TO ENABLE GDM DISPLAY MANAGER? [y,n]"
 	read input
 
 	# did we get an input value?
@@ -358,9 +320,79 @@ function virtualbox() {
 	# was it a y or a yes?
 	elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
 
-	   echo "You replied $input, this is a VM"
+	   echo "You replied $input, you do want to enable GDM Display Manager"
 	   echo
-	   echo "Installing Guest Aditions"
+	   echo "Enabling GDM Display Manager"
+	   echo
+	   sleep 3s
+           echo
+           sudo pacman -S lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
+
+	# treat anything else as a negative response
+	else
+
+	   echo "You replied $input, you don't want to enable GDM Display Manager"
+	   echo
+	   echo "Moving on"
+
+fi
+
+	echo
+	
+	check_exit_status
+}
+
+# searching for the fastest mirrors
+function lightdm() {
+	echo "DO YOU WANT TO ENABLE LIGHTDM DISPLAY MANAGER? [y,n]"
+	read input
+
+	# did we get an input value?
+	if [ "$input" == "" ]; then
+
+	   echo "Nothing was entered by the user"
+
+	# was it a y or a yes?
+	elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
+
+	   echo "You replied $input, you do want to enable LightDM Display Manager"
+	   echo
+	   echo "Enabling LightDM Display Manager"
+	   echo
+	   sleep 3s
+           echo
+           sudo systemctl enable Lightdm.service -f
+
+	# treat anything else as a negative response
+	else
+
+	   echo "You replied $input, you don't want to enable LightDM Display Manager"
+	   echo
+	   echo "Moving on"
+
+fi
+
+	echo
+	
+	check_exit_status
+}
+
+# Installing Guest Additions,if needed
+function virtualbox() {
+	echo "IS THIS A VBOX VM, INSTALL GUEST ADDITIONS? [y,n]"
+	read input
+
+	# did we get an input value?
+	if [ "$input" == "" ]; then
+
+	   echo "Nothing was entered by the user"
+
+	# was it a y or a yes?
+	elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
+
+	   echo "You replied $input, this is a Vbox VM"
+	   echo
+	   echo "Installing Guest Additions"
 	   echo
 	   sleep 3s
            echo
@@ -378,9 +410,6 @@ fi
 	echo
 	
 	check_exit_status
-}
-
-
 }
 
 
@@ -413,7 +442,9 @@ face
 icons
 dock
 backgrounds
-#video-driver
-#dm
+nvidia
+intel
+gdm
+lightdm
 #virtualbox
 leave
