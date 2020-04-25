@@ -99,13 +99,34 @@ function arco() {
 
 # Settings for laptops
 function laptop() {
-	echo
-	echo "Running Arco Linux Setup Scripts"
-	echo
-	sleep 3s
-	cd /victory-edition/victory/
-	echo
-	sh victory/laptop*.sh
+	echo "IS THIS BEING INSTALLED ON A LAPTOP? [y,n]"
+	read input
+
+	# did we get an input value?
+	if [ "$input" == "" ]; then
+
+	   echo "Nothing was entered by the user"
+
+	# was it a y or a yes?
+	elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
+
+	   echo "You replied $input, this a laptop"
+	   echo
+	   echo "Running setup for laptops"
+	   echo
+	   cd /victory-edition/ArcoInstall/
+           echo
+           sh ArcoInstall/160-install-tlp-for-laptops-v*.sh
+
+	# treat anything else as a negative response
+	else
+
+	   echo "You replied $input, this is not a laptop"
+	   echo
+	   echo "Moving on"
+
+fi
+
 	echo
 	
 	check_exit_status
@@ -128,7 +149,7 @@ function update_script() {
 	echo "Moving Update Script to final location."
 	echo
 	sleep 3s
-	sudo mv Personal/arcoupdate ~/.bin/;
+	sudo mv victory/arcoupdate ~/.bin/;
 	cd ~/.bin 
 	chmod u+x arcoupdate
 	check_exit_status
@@ -140,8 +161,8 @@ function fix_bashrc() {
 	echo "Making Terminal fancy."
 	echo
 	sleep 3s
-	sudo mv Personal/.fancy-user-bash.sh ~/;
-	sudo mv Personal/.fancy-root-bash.sh ~/;
+	sudo mv victory/.fancy-user-bash.sh ~/;
+	sudo mv victory/.fancy-root-bash.sh ~/;
 	echo "
 	source ~/.fancy-user-bash.sh" | sudo tee --append ~/.bashrc
 		echo
@@ -151,16 +172,16 @@ function fix_bashrc() {
 		check_exit_status
 	}
 	
-	# Put the .face img in home folder
-	function face() {
-	
-		echo "Fixing my face."
-		echo
-		sleep 3s
-		sudo mv victory/.face ~/;
-		echo
-		check_exit_status
-	}
+# Put the .face img in home folder
+function face() {
+
+	echo "Fixing my face."
+	echo
+	sleep 3s
+	sudo mv victory/.face ~/;
+	echo
+	check_exit_status
+}
 
 # Installing my Icon Themes
 function icons() {
@@ -240,15 +261,41 @@ function dm() {
 
 }
 
-# Installing Intel drivers,if needed
+# Installing Guest Aditions,if needed
 function virtualbox() {
+	echo "IS THIS A VM, INSTALL GUEST ADITIONS? [y,n]"
+	read input
+
+	# did we get an input value?
+	if [ "$input" == "" ]; then
+
+	   echo "Nothing was entered by the user"
+
+	# was it a y or a yes?
+	elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
+
+	   echo "You replied $input, this is a VM"
+	   echo
+	   echo "Installing Guest Aditions"
+	   echo
+	   sleep 3s
+           echo
+           sudo pacman -S virtualbox-guest-modules-arch virtualbox-guest-utils --noconfirm
+
+	# treat anything else as a negative response
+	else
+
+	   echo "You replied $input, this is not a VM"
+	   echo
+	   echo "Moving on"
+
+fi
+
 	echo
-	echo "Running Arco Linux Setup Scripts"
-	echo
-	sleep 3s
-	cd /victory-edition/victory/
-	echo
-	sh victory/vbox*.sh
+	
+	check_exit_status
+}
+
 
 }
 
@@ -282,7 +329,7 @@ face
 icons
 dock
 backgrounds
-video-driver
-dm
-virtualbox
+#video-driver
+#dm
+#virtualbox
 leave
