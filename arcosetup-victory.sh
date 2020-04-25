@@ -75,9 +75,9 @@ function greeting() {
 	# treat anything else as a negative response
 	else
 
-	   echo "You replied $input, this is not a VM"
+	   echo "You replied $input, you are not ready"
 	   echo
-	   echo "Moving on"
+	   exit
 
 fi
 
