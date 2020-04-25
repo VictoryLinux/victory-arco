@@ -31,25 +31,28 @@ check_exit_status() {
 }
 
 function greeting() {
+	clear
 
 	echo
 	echo "+-------------------------------------------------------------------------+"
-	echo "|-- Hello, $USER. Let's Finish settting up your fresh ArcoLinux-Edition.--|"
+	echo "|------- Hello, $USER. Let's setup your ArcoLinux Victory-Edition. -------|"
 	echo "+-------------------------------------------------------------------------+"
 	echo
-	echo "This is not a silent install" 
+	echo "This is NOT a silent install" 
 	echo
 	echo "you will be asked several questions as it progresses"
 	echo
-	echo "Things you need to know before you start"
+	echo
 	echo
 	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 	echo "+++++  Things you need to know before you start  +++++"
 	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+	echo "++                                                  ++"
 	echo "++ 1.) Your username & a password for SAMBA install ++"
 	echo "++ 2.) What GPU driver you need, Nvidia or Intel    ++"
 	echo "++ 3.) Is this a Virtualbox VM                      ++"
 	echo "++ 4.) Do you want to use GDM or LightDM            ++"
+	echo "++                                                  ++"
 	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 	echo
@@ -77,7 +80,7 @@ function greeting() {
 
 	   echo "You replied $input, you are not ready"
 	   echo
-	   exit
+	   exit 1
 
 fi
 
@@ -172,8 +175,21 @@ fi
 
 	echo
 	
+}
+
+# Running Arco Linux Setup Scripts
+function laptop2() {
+	echo
+	echo "Running Arco Linux Setup Scripts"
+	echo
+	sleep 3s
+	cd /victory-edition/ArcoInstall/
+	echo
+	sh ArcoInstall/160-install-tlp-for-laptops-v*.sh
+	echo
 	check_exit_status
 }
+
 
 # copy update script to final location
 function flatpak() {
@@ -293,9 +309,9 @@ function nvidia() {
 	# was it a y or a yes?
 	elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
 
-	   echo "You replied $input, you do need Nvidia driver"
+	   echo "You replied $input, you do need Nvidia video driver"
 	   echo
-	   echo "Installing Nvidia driver"
+	   echo "Installing Nvidia video driver"
 	   echo
 	   sleep 3s
            echo
@@ -312,6 +328,18 @@ fi
 
 	echo
 	
+	check_exit_status
+}
+
+# Running Arco Linux Setup Scripts
+function nvidia2() {
+	echo
+	echo "Installing Nvidia video driver"
+	echo
+	sleep 3s
+	echo
+	sudo pacman -S nvidia nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
+	echo
 	check_exit_status
 }
 
@@ -350,6 +378,18 @@ fi
 	check_exit_status
 }
 
+# Running Arco Linux Setup Scripts
+function intel2() {
+	echo
+	echo "Installing Intel video driver"
+	echo
+	sleep 3s
+	echo
+	sudo pacman -S lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
+	echo
+	check_exit_status
+}
+
 # searching for the fastest mirrors
 function gdm() {
 	echo "DO YOU WANT TO ENABLE GDM DISPLAY MANAGER? [y,n]"
@@ -369,7 +409,7 @@ function gdm() {
 	   echo
 	   sleep 3s
            echo
-           sudo pacman -S lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
+           sudo systemctl enable gdm.service -f
 
 	# treat anything else as a negative response
 	else
@@ -382,6 +422,18 @@ fi
 
 	echo
 	
+	check_exit_status
+}
+
+# Running Arco Linux Setup Scripts
+function gdm2() {
+	echo
+	echo "Enabling GDM Display Manager"
+	echo
+	sleep 3s
+	echo
+	sudo systemctl enable gdm.service -f
+	echo
 	check_exit_status
 }
 
@@ -420,6 +472,18 @@ fi
 	check_exit_status
 }
 
+# Running Arco Linux Setup Scripts
+function lightdm2() {
+	echo
+	echo "Enabling LightDM Display Manager"
+	echo
+	sleep 3s
+	echo
+	sudo systemctl enable lightdm.service -f
+	echo
+	check_exit_status
+}
+
 # Installing Guest Additions,if needed
 function virtualbox() {
 	echo "IS THIS A VBOX VM, INSTALL GUEST ADDITIONS? [y,n]"
@@ -455,6 +519,18 @@ fi
 	check_exit_status
 }
 
+# Running Arco Linux Setup Scripts
+function virtualbox2() {
+	echo
+	echo "Installing Guest Additions"
+	echo
+	sleep 3s
+	echo
+	sudo pacman -S virtualbox-guest-modules-arch virtualbox-guest-utils --noconfirm
+	echo
+	check_exit_status
+}
+
 
 function leave() {
 
@@ -472,12 +548,17 @@ function leave() {
 	reboot
 }
 
+
+
+# Place a # in front of any part of this script yould like to skip:
+
 greeting
 mirror
 general_update
 debloat
 arco
-laptop
+#laptop
+#laptop2
 flatpak
 update_script
 fix_bashrc
@@ -485,9 +566,14 @@ face
 icons
 dock
 backgrounds
-nvidia
-intel
-gdm
-lightdm
-virtualbox
+#nvidia
+nvidia2
+#intel
+intel2
+#gdm
+gdm2
+#lightdm
+lightdm2
+#virtualbox
+virtualbox2
 leave
