@@ -110,7 +110,7 @@ function laptop() {
 	# was it a y or a yes?
 	elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
 
-	   echo "You replied $input, this a laptop"
+	   echo "You replied $input, this is a laptop"
 	   echo
 	   echo "Running setup for laptops"
 	   echo
@@ -238,28 +238,112 @@ function backgrounds() {
 }
 
 # searching for the fastest mirrors
-function video-driver() {
-	echo
-	echo "Running Arco Linux Setup Scripts"
-	echo
-	sleep 3s
-	cd /victory-edition/victory/
-	echo
-	sh victory/gpu*.sh
+function nvidia() {
+	echo "DO YOU NEED NVIDIA DRIVERS? [y,n]"
+	read input
 
+	# did we get an input value?
+	if [ "$input" == "" ]; then
+
+	   echo "Nothing was entered by the user"
+
+	# was it a y or a yes?
+	elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
+
+	   echo "You replied $input, you do need nvidia driver"
+	   echo
+	   echo "Installing Nvidia driver"
+	   echo
+	   sleep 3s
+           echo
+           sudo pacman -S nvidia nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
+
+	# treat anything else as a negative response
+	else
+
+	   echo "You replied $input, you don't need nvidia driver"
+	   echo
+	   echo "Moving on"
+
+fi
+
+	echo
+	
+	check_exit_status
 }
 
 # searching for the fastest mirrors
-function dm() {
-	echo
-	echo "Running Arco Linux Setup Scripts"
-	echo
-	sleep 3s
-	cd /victory-edition/victory/
-	echo
-	sh victory/dm*.sh
+function nvidia() {
+	echo "DO YOU NEED NVIDIA VIDEO DRIVERS? [y,n]"
+	read input
 
+	# did we get an input value?
+	if [ "$input" == "" ]; then
+
+	   echo "Nothing was entered by the user"
+
+	# was it a y or a yes?
+	elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
+
+	   echo "You replied $input, you do need nvidia video driver"
+	   echo
+	   echo "Installing Nvidia video driver"
+	   echo
+	   sleep 3s
+           echo
+           sudo pacman -S nvidia nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
+
+	# treat anything else as a negative response
+	else
+
+	   echo "You replied $input, you don't need nvidia video driver"
+	   echo
+	   echo "Moving on"
+
+fi
+
+	echo
+	
+	check_exit_status
 }
+
+# searching for the fastest mirrors
+function intel() {
+	echo "DO YOU NEED INTEL VIDEO DRIVERS? [y,n]"
+	read input
+
+	# did we get an input value?
+	if [ "$input" == "" ]; then
+
+	   echo "Nothing was entered by the user"
+
+	# was it a y or a yes?
+	elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
+
+	   echo "You replied $input, you do need Intel Video driver"
+	   echo
+	   echo "Installing Intel video driver"
+	   echo
+	   sleep 3s
+           echo
+           sudo pacman -S lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
+
+	# treat anything else as a negative response
+	else
+
+	   echo "You replied $input, you don't need Intel video driver"
+	   echo
+	   echo "Moving on"
+
+fi
+
+	echo
+	
+	check_exit_status
+}
+
+	echo "DO YOU NEED GDM DISPLAY MANAGER VIDEO DRIVERS? [y,n]"
+
 
 # Installing Guest Aditions,if needed
 function virtualbox() {
