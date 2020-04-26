@@ -55,6 +55,7 @@ func_category() {
 func_category Accessories
 
 list=(
+glimpse-editor-git
 #mintstick-git
 )
 
