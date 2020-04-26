@@ -130,20 +130,35 @@ function arco() {
 	sleep 3s
 	cd /victory-edition/ArcoInstall/
 	echo
-	sh ArcoInstall/000-use-all-cores-makepkg-conf-v*.sh
-	sh ArcoInstall/110-install-sound-v*.sh
-	sh ArcoInstall/120-bluetooth-v*.sh
-	sh ArcoInstall/121-fix-bluetooth-switch-not-working-v*.sh
-	sh ArcoInstall/130-install-printers-v*.sh
-	sh ArcoInstall/140-install-samba-v*.sh
-	sh ArcoInstall/150-install-network-discovery-v*.sh
-	sh ArcoInstall/200-software-arch-linux-repo-v*.sh
-	sh ArcoInstall/300-software-AUR-repo-v*.sh
-	sh ArcoInstall/400-software-arch-linux-repo-distro-specific-v*.sh
-	sh ArcoInstall/500-software-AUR-repo-distro-specific-v*.sh
-	sh ArcoInstall/600-software-from-ArcoLinux-repo-v*.sh
-	sh ArcoInstall/700-installing-fonts-v*.sh
-	sh ArcoInstall/900-fix-microcode-error-v*.sh
+	sh ArcoInstall/100-display-manager-and-desktop.sh
+	sh ArcoInstall/110-development-software.sh
+	sh ArcoInstall/120-install-sound.sh
+	sh ArcoInstall/130-bluetooth.sh
+	sh ArcoInstall/140-printers.sh
+	sh ArcoInstall/150-samba.sh
+	sh ArcoInstall/170-network-discovery.sh
+	sh ArcoInstall/200-software-arch-linux.sh
+	sh ArcoInstall/300-software-arcolinux-3thparty.sh
+	sh ArcoInstall/400-software-arcolinux-xlarge.sh
+	sh ArcoInstall/500-software-distro-specific.sh
+	sh ArcoInstall/600-additional-arcolinux-software.sh
+	sh ArcoInstall/700-installing-fonts.sh
+	sh ArcoInstall/800-conky.sh
+	echo
+#	sh ArcoInstall/000-use-all-cores-makepkg-conf-v*.sh
+#	sh ArcoInstall/110-install-sound-v*.sh
+#	sh ArcoInstall/120-bluetooth-v*.sh
+#	sh ArcoInstall/121-fix-bluetooth-switch-not-working-v*.sh
+#	sh ArcoInstall/130-install-printers-v*.sh
+#	sh ArcoInstall/140-install-samba-v*.sh
+#	sh ArcoInstall/150-install-network-discovery-v*.sh
+#	sh ArcoInstall/200-software-arch-linux-repo-v*.sh
+#	sh ArcoInstall/300-software-AUR-repo-v*.sh
+#	sh ArcoInstall/400-software-arch-linux-repo-distro-specific-v*.sh
+#	sh ArcoInstall/500-software-AUR-repo-distro-specific-v*.sh
+#	sh ArcoInstall/600-software-from-ArcoLinux-repo-v*.sh
+#	sh ArcoInstall/700-installing-fonts-v*.sh
+#	sh ArcoInstall/900-fix-microcode-error-v*.sh
 
 	check_exit_status
 }
@@ -190,7 +205,7 @@ function laptop2() {
 	sleep 3s
 	cd /victory-edition/ArcoInstall/
 	echo
-	sh ArcoInstall/160-install-tlp-for-laptops-v*.sh
+	sh ArcoInstall/160-laptop.sh
 	echo
 	check_exit_status
 }
