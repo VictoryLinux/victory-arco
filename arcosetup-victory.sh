@@ -579,7 +579,7 @@ debloat
 arco
 #laptop
 #laptop2
-flatpak
+#flatpak
 update_script
 fix_bashrc
 face
