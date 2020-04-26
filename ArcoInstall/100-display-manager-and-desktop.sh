@@ -51,7 +51,7 @@ lightdm
 arcolinux-lightdm-gtk-greeter
 arcolinux-lightdm-gtk-greeter-settings
 #arcolinux-wallpapers-git
-#gnome
+gnome
 gnome-tweaks
 guake
 )
