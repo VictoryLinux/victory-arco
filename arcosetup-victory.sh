@@ -165,37 +165,30 @@ function arco() {
 
 # Settings for laptops
 function laptop() {
-	echo "IS THIS BEING INSTALLED ON A LAPTOP? [y,n]"
-	read input
+	read -p "IS THIS BEING INSTALLED ON A LAPTOP? [y,n]" answer 
 
-	# did we get an input value?
-	if [ "$input" == "" ]; then
+            if [ "$answer" == "y" ]
+            then
+            	echo "You replied $input, this is a laptop."
+		echo
+		echo "Running setup for laptops."
+		echo
+		cd /victory-edition/ArcoInstall/
+		echo
+		sh ArcoInstall/160-install-tlp-for-laptops-v*.sh
 
-	   echo "Nothing was entered by the user"
+            if [ "$answer" == "n" ]
+            then
+		echo "You replied $input, this is not a laptop"
+		echo
+		echo "Moving on"
+		sleep 15s
+                
+            fi
+        fi
 
-	# was it a y or a yes?
-	elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
-
-	   echo "You replied $input, this is a laptop."
-	   echo
-	   echo "Running setup for laptops."
-	   echo
-	   cd /victory-edition/ArcoInstall/
-           echo
-           sh ArcoInstall/160-install-tlp-for-laptops-v*.sh
-
-	# treat anything else as a negative response
-	else
-
-	   echo "You replied $input, this is not a laptop"
-	   echo
-	   echo "Moving on"
-
-fi
-
-	echo
-	
 }
+	
 
 # Running Arco Linux Setup Scripts
 function laptop2() {
@@ -506,38 +499,31 @@ function lightdm2() {
 
 # Installing Guest Additions,if needed
 function virtualbox() {
-	echo "IS THIS A VBOX VM, INSTALL GUEST ADDITIONS? [y,n]"
-	read input
-
-	# did we get an input value?
-	if [ "$input" == "" ]; then
-
-	   echo "Nothing was entered by the user"
-
-	# was it a y or a yes?
-	elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
-
-	   echo "You replied $input, this is a Vbox VM"
-	   echo
-	   echo "Installing Guest Additions"
-	   echo
-	   sleep 3s
-           echo
-           sudo pacman -S virtualbox-guest-modules-arch virtualbox-guest-utils --noconfirm
-
-	# treat anything else as a negative response
-	else
-
-	   echo "You replied $input, this is not a VM"
-	   echo
-	   echo "Moving on"
-
-fi
-
-	echo
 	
-	check_exit_status
+	read -p "IS THIS A VBOX VM, INSTALL GUEST ADDITIONS? [y,n]" answer 
+
+            if [ "$answer" == "y" ]
+            then
+            	echo "You replied $input, this is a Vbox VM"
+		echo
+		echo "Installing Guest Additions"
+		echo
+		sleep 3s
+		echo
+		sudo pacman -S virtualbox-guest-modules-arch virtualbox-guest-utils --noconfirm
+
+            if [ "$answer" == "n" ]
+            then
+		echo "You replied $input, this is not a VM"
+		echo
+		echo "Moving on"
+		sleep 15s
+                
+            fi
+        fi
+
 }
+	
 
 # Running Arco Linux Setup Scripts
 function virtualbox2() {
@@ -577,7 +563,7 @@ mirror
 general_update
 debloat
 arco
-#laptop
+laptop
 #laptop2
 #flatpak
 update_script
@@ -587,13 +573,13 @@ icons
 dock
 backgrounds
 #nvidia
-nvidia2
+#nvidia2
 #intel
-intel2
+#intel2
 #gdm
-gdm2
+#gdm2
 #lightdm
-lightdm2
-#virtualbox
-virtualbox2
+#lightdm2
+virtualbox
+#virtualbox2
 leave
