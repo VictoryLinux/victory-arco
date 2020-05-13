@@ -405,37 +405,29 @@ function intel2() {
 
 # searching for the fastest mirrors
 function gdm() {
-	echo "DO YOU WANT TO ENABLE GDM DISPLAY MANAGER? [y,n]"
-	read input
+	read -p "DO YOU WANT TO ENABLE GDM DISPLAY MANAGER? [y,n]" answer 
 
-	# did we get an input value?
-	if [ "$input" == "" ]; then
+            if [ "$answer" == "y" ]
+            then
+            	echo "You replied $input, you do want to enable GDM Display Manager."
+		echo
+		echo "Enabling GDM Display Manager."
+		echo
+		sleep 3s
+		echo
+		sudo systemctl enable gdm.service -f
+		echo
 
-	   echo "Nothing was entered by the user"
+            if [ "$answer" == "n" ]
+            then
+		echo "You replied $input, you don't want to enable GDM Display Manager"
+		echo
+		echo "Moving on"
+		sleep 15s
+                
+            fi
+        fi
 
-	# was it a y or a yes?
-	elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
-
-	   echo "You replied $input, you do want to enable GDM Display Manager"
-	   echo
-	   echo "Enabling GDM Display Manager"
-	   echo
-	   sleep 3s
-           echo
-           sudo systemctl enable gdm.service -f
-
-	# treat anything else as a negative response
-	else
-
-	   echo "You replied $input, you don't want to enable GDM Display Manager"
-	   echo
-	   echo "Moving on"
-
-fi
-
-	echo
-	
-	check_exit_status
 }
 
 # Running Arco Linux Setup Scripts
@@ -563,7 +555,7 @@ mirror
 general_update
 debloat
 arco
-laptop
+#laptop
 #laptop2
 #flatpak
 update_script
@@ -577,9 +569,9 @@ backgrounds
 #intel
 #intel2
 #gdm
-#gdm2
+gdm2
 #lightdm
 #lightdm2
-virtualbox
+#virtualbox
 #virtualbox2
 leave
