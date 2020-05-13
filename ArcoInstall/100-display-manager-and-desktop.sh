@@ -47,9 +47,9 @@ echo "Installation of the core software"
 ###############################################################################
 
 list=(
-lightdm
-arcolinux-lightdm-gtk-greeter
-arcolinux-lightdm-gtk-greeter-settings
+#lightdm
+#arcolinux-lightdm-gtk-greeter
+#arcolinux-lightdm-gtk-greeter-settings
 #arcolinux-wallpapers-git
 gnome
 gnome-tweaks
