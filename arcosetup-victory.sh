@@ -233,8 +233,8 @@ function fix_bashrc() {
 	echo "Making Terminal fancy."
 	echo
 	sleep 3s
-	sudo mv victory/.fancy-user-bash.sh ~/;
-	sudo mv victory/.fancy-root-bash.sh ~/;
+	sudo cp -r victory/.fancy-user-bash.sh ~/;
+	sudo cp -r victory/.fancy-root-bash.sh ~/;
 	echo "
 	source ~/.fancy-user-bash.sh" | sudo tee --append ~/.bashrc
 		echo
@@ -250,7 +250,7 @@ function face() {
 	echo "Fixing my face."
 	echo
 	sleep 3s
-	sudo mv victory/.face ~/;
+	sudo cp -r victory/.face ~/;
 	echo
 	check_exit_status
 }
@@ -261,11 +261,11 @@ function icons() {
 	echo "Giving Gnome a facelift."
 	echo
 	sleep 3s
-	git clone https://github.com/pop-os/icon-theme pop-icon-theme
-	cd pop-icon-theme
-	meson build
-	sudo ninja -C "build" install
-	sudo mv pop-icon-theme/ ~/;
+#	git clone https://github.com/pop-os/icon-theme pop-icon-theme
+#	cd pop-icon-theme
+#	meson build
+#	sudo ninja -C "build" install
+#	sudo mv pop-icon-theme/ ~/;
 	#gsettings set org.gnome.desktop.interface icon-theme 'Pop'
 	echo
 	git clone https://github.com/daniruiz/flat-remix
@@ -285,8 +285,8 @@ function dock() {
 	echo "Setting up the Dock."
 	echo
 	sleep 3s
-	cp /usr/share/applications/plank.desktop ~/.config/autostart/
-	sudo chmod +x ~/.config/autostart/plank.desktop
+#	cp /usr/share/applications/plank.desktop ~/.config/autostart/
+#	sudo chmod +x ~/.config/autostart/plank.desktop
 	echo
 	gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'chromium.desktop', 'org.gnome.Nautilus.desktop', 'simplenote.desktop', 'terminator.desktop', 'realvnc-vncviewer.desktop', 'com.teamviewer.TeamViewer.desktop', 'virtualbox.desktop', 'onboard.desktop']"
 	
@@ -302,7 +302,7 @@ function backgrounds() {
 #	sudo mv ~/victory-edition/victory/backgrounds/my_arcolinux /usr/share/backgrounds/
 #	sudo mv ~/victory-edition/victory/backgrounds/my_gnome /usr/share/backgrounds/
 #	sudo mv ~/victory-edition/victory/backgrounds/my_wall /usr/share/backgrounds/
-	sudo mv ~/victory-edition/victory/backgrounds/victory /usr/share/backgrounds/
+	sudo cp -r ~/victory-edition/victory/backgrounds/victory /usr/share/backgrounds/
 	echo
 #	sudo rm -rf /usr/share/backgrounds/arcolinux
 #	sudo rm -rf /usr/share/backgrounds/gnome
