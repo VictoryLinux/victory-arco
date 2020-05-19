@@ -233,8 +233,11 @@ function fix_bashrc() {
 	echo "Making Terminal fancy."
 	echo
 	sleep 3s
-	sudo cp -r victory/.fancy-user-bash.sh ~/;
-	sudo cp -r victory/.fancy-root-bash.sh ~/;
+	sudo cp -r victory/fancy-user-bash.sh ~/;
+	sudo cp -r victory/fancy-root-bash.sh ~/;
+	cd ~
+	sudo mv fancy-user-bash.sh .fancy-user-bash.sh
+	sudo mv fancy-root-bash.sh .fancy-root-bash.sh
 	echo "
 	source ~/.fancy-user-bash.sh" | sudo tee --append ~/.bashrc
 		echo
@@ -250,7 +253,10 @@ function face() {
 	echo "Fixing my face."
 	echo
 	sleep 3s
-	sudo cp -r victory/.face ~/;
+	sudo cp -r victory/face ~/;
+	echo
+	cd ~
+	sudo mv face .face
 	echo
 	check_exit_status
 }
