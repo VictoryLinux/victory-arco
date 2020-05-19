@@ -32,15 +32,64 @@ check_exit_status() {
 
 function greeting() {
 
+	clear
+
 	echo
 	echo "+-------------------------------------------------------------------------+"
-	echo "|-- Hello, $USER. Let's Start settting up your fresh ArcoLinux install.--|"
+	echo "|------- Hello, $USER. Let's setup your ArcoLinux Victory-Edition. -------|"
 	echo "+-------------------------------------------------------------------------+"
 	echo
-	echo "This is not a silent install" 
+	echo "DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK."
+	echo
+	echo
+	echo
+	echo
+	echo "This is NOT a silent install" 
 	echo
 	echo "you will be asked several questions as it progresses"
-	sleep 10s
+	echo
+	echo
+	echo
+	echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+	echo "++++++++  Things you need to know before you start  ++++++++"
+	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+	echo "++                                                        ++"
+	echo "++ 1.) This first script will install the Gnome DE + GDM  ++"
+	echo "++                                                        ++"
+	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+	echo
+	echo
+#	sleep 5s
+	echo "ARE YOU READY TO START? [y,n]"
+	read input
+
+	# did we get an input value?
+	if [ "$input" == "" ]; then
+
+	   echo "Nothing was entered by the user"
+
+	# was it a y or a yes?
+	elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
+
+	   echo "You replied $input, you are ready to start"
+	   echo
+	   echo "Starting Arcolinux Victory-Edition install script pt. 1."
+	   echo
+	   sleep 3s
+
+	# treat anything else as a negative response
+	else
+
+	   echo "You replied $input, you are not ready"
+	   echo
+	   exit 1
+
+fi
+
+	echo
+	
+	check_exit_status
 }
 
 # searching for the fastest mirrors
