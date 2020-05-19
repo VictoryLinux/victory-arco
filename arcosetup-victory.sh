@@ -105,7 +105,7 @@ function mirror() {
 # Downloading and installing all Arch Linux and ArcoLinux packages
 function general_update() {
 
-	echo "Updating Arch & Arco."
+	echo "Updating ArchLinux & ArcoLinux."
 	echo
 	sleep 3s
 	sudo pacman -Syyu --noconfirm;
