@@ -76,7 +76,7 @@ function greeting() {
 
 	   echo "You replied $input, you are ready to start"
 	   echo
-	   echo "Starting Arcolinux Victory-Edition install script."
+	   echo "Starting Arcolinux Victory-Edition install script pt. 2."
 	   echo
 	   sleep 3s
 
