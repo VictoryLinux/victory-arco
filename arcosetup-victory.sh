@@ -118,7 +118,7 @@ function debloat() {
 	echo "Debloating."
 	echo
 	sleep 3s
-	sudo pacman -Rdsu gnome-books gnome-clocks gnome-terminal gnome-documents gnome-maps gnome-music gnome-todo gnome-weather gnome-boxes epiphany totem --noconfirm;
+	sudo pacman -Rdsu gnome-books gnome-clocks gnome-terminal gnome-documents gnome-maps gnome-music gnome-weather gnome-boxes epiphany totem --noconfirm;
 	check_exit_status gnome backgrounds
 }
 
