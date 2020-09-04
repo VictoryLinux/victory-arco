@@ -24,9 +24,9 @@ Run the ArcoLinuxD Iso to install the Arch framework.
 Run these commands in this order:
 
 
-    git clone https://github.com/VictoryLinux/victory-edition
+    git clone https://github.com/VictoryLinux/victory-arco
 
-    chmod +x ~/victory-edition/*.sh 
+    chmod +x ~/victory-arco/*.sh 
 
     cd victory-edition
     
