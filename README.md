@@ -28,7 +28,7 @@ Run these commands in this order:
 
     chmod +x ~/victory-arco/*.sh 
 
-    cd victory-edition
+    cd victory-arco
     
 1.) If you want to install Gnome DE
     
