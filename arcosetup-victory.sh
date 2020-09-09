@@ -8,6 +8,34 @@
 # # Scroll to the very bottom to alter what is executed in this script.
 ##################################################################################################################
 
+# Place a # in front of any part of this script yould like to skip:
+
+greeting
+mirror
+general_update
+debloat
+arco
+install
+#laptop
+#laptop2
+#flatpak
+update_script
+fix_bashrc
+face
+icons
+dock
+backgrounds
+#nvidia
+#nvidia2
+#intel
+#intel2
+#gdm
+gdm2
+#lightdm
+#lightdm2
+#virtualbox
+#virtualbox2
+
 # Make sure each command executes properly
 check_exit_status() {
 
@@ -161,6 +189,18 @@ function arco() {
 #	sh ArcoInstall/900-fix-microcode-error-v*.sh
 
 	check_exit_status
+}
+
+function install() {
+	echo
+	echo "Installing Essentials"
+	echo
+	sleep 3s
+	sudo pacman -S terminator dconf-editor yay gnome-nettool gnome-tweaks gnome-usage flatpak curl git meson onboard brave-bin unrar
+	echo
+	yay -S flat-remix onlyoffice-bin popsicle-git arcolinux-teamviewer realvnc-vnc-server realvnc-vnc-viewer
+	echo
+	flatpak install flathub org.glimpse_editor.Glimpse && flatpak install flathub com.discordapp.Discord
 }
 
 # Settings for laptops
@@ -551,33 +591,4 @@ function leave() {
 	sleep 15s
 	reboot
 }
-
-
-
-# Place a # in front of any part of this script yould like to skip:
-
-greeting
-mirror
-general_update
-debloat
-arco
-#laptop
-#laptop2
-#flatpak
-update_script
-fix_bashrc
-face
-icons
-dock
-backgrounds
-#nvidia
-#nvidia2
-#intel
-#intel2
-#gdm
-gdm2
-#lightdm
-#lightdm2
-#virtualbox
-#virtualbox2
 leave
