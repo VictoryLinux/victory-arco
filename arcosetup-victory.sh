@@ -8,33 +8,7 @@
 # # Scroll to the very bottom to alter what is executed in this script.
 ##################################################################################################################
 
-# Place a # in front of any part of this script yould like to skip:
 
-greeting
-mirror
-general_update
-debloat
-arco
-install
-#laptop
-#laptop2
-#flatpak
-update_script
-fix_bashrc
-face
-icons
-dock
-backgrounds
-#nvidia
-#nvidia2
-#intel
-#intel2
-#gdm
-gdm2
-#lightdm
-#lightdm2
-#virtualbox
-#virtualbox2
 
 # Make sure each command executes properly
 check_exit_status() {
@@ -591,4 +565,33 @@ function leave() {
 	sleep 15s
 	reboot
 }
+
+
+# Place a # in front of any part of this script yould like to skip:
+
+greeting
+mirror
+general_update
+debloat
+arco
+install
+#laptop
+#laptop2
+#flatpak
+update_script
+fix_bashrc
+face
+icons
+dock
+backgrounds
+#nvidia
+#nvidia2
+#intel
+#intel2
+#gdm
+gdm2
+#lightdm
+#lightdm2
+#virtualbox
+#virtualbox2
 leave
