@@ -8,6 +8,7 @@ alias ipconfig="nmcli dev show enp3s0"
 
 # upall
 # An alias taken from ArcoLinux one command to update everything
+# For Debian and based destros
 alias upall="sudo apt update && sudo  apt upgrade && sudo apt autoremove"
 
 # ll
